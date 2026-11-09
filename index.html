@@ -171,7 +171,7 @@ let query = "";
 
 
 /* ---------- V2: enriquecimento (só preenche campos vazios) ---------- */
-const ENRICH_KEY = "adega-marques-silva-migr-enrich-v4-2026-11-08";
+const ENRICH_KEY = "adega-marques-silva-migr-enrich-v5-2026-11-08";
 const V2_FIELDS = ["abv", "composicao", "amadurecimento", "guarda", "fontes", "certeza"];
 const ENRICH = [
   { k: ["D.V. Catena Tinto Histórico", "Catena Zapata", "2024"], abv: "13,5%", composicao: "77% Malbec, 18% Bonarda, 5% Petit Verdot", amadurecimento: "8–14 meses em carvalho francês", fontes: "[Verificado — vinissimus.com; saratogawine.com] Composição sem Bonarda no cadastro anterior estava incompleta", certeza: "verificado" },
@@ -189,7 +189,7 @@ const ENRICH = [
   { k: ["LA Jovem Brut", "LA", ""], abv: "12,5%", regiao: "Serra do Sudeste, RS", fontes: "[Verificado — rótulo] ABV · [Inferência] LA = Luiz Argenta (zoom.com.br; viniou.com)", certeza: "inferencia" },
   { k: ["Alvarinho Barricado", "Hermann", "2024"], abv: "13%", regiao: "Serra do Sudeste, RS", amadurecimento: "12 meses", fontes: "[Verificado — rótulo] ABV/amadurecimento · [Verificado — istoedinheiro.com.br] Vinícola Hermann na Serra do Sudeste", certeza: "verificado" },
   { k: ["Cabernet Franc Reserva", "Raritá do Vale", "2022"], abv: "12,9%", fontes: "[Verificado — rótulo] ABV · sem ficha técnica online localizada", certeza: "verificado" },
-  { k: ["Chardonnay Gran Reserva", "Raritá do Vale", "2022"], abv: "13%", regiao: "Vale dos Vinhedos, RS", fontes: "[Verificado — rótulo] ABV · [Inferência] região (Vivino: vinícola no Vale dos Vinhedos)", certeza: "inferencia" },
+  { k: ["Chardonnay Gran Reserva", "Raritá do Vale", "2022"], abv: "13%", composicao: "100% Chardonnay", regiao: "Vale dos Vinhedos, RS", amadurecimento: "6–8 meses em barricas de carvalho + aduelas de carvalho francês em tanque inox", guarda: "", fontes: "[Verificado — rótulo] ABV 13%. [Inferência] amadurecimento da ficha oficial do Chardonnay safra 2021 (11,5%, 1.400 garrafas, colheita manual): safra e teor diferem da sua garrafa 2022", certeza: "inferencia" },
   { k: ["Valmarino XXVII", "Valmarino", "2022"], abv: "14–14,5%", composicao: "100% Cabernet Franc (vinhedos próprios, Pinto Bandeira)", amadurecimento: "24 meses · 80% carvalho americano / 20% francês (50% novo)", guarda: "10–15 anos", fontes: "[Verificado — valmarino.com.br; wineit.com.br] safra 2022 = Ano XXVII, IP Pinto Bandeira. Lojas divergem no amadurecimento (16 meses em algumas): conferir contrarrótulo", certeza: "verificado" },
   { k: ["Valmarino XXV", "Valmarino", "2020"], composicao: "100% Cabernet Franc", fontes: "[Inferência] Ficha do Ano XXV não localizada; série numerada de safras especiais (XXVII = 2022), IP Pinto Bandeira", certeza: "inferencia" },
   { k: ["Chardonnay Reserva", "Bodega Iribarren", "2023"], force: { produtor: "Bodega Iribarrem" }, abv: "13%", uva: "Chardonnay", regiao: "Vale dos Vinhedos, Bento Gonçalves, RS", composicao: "100% Chardonnay", amadurecimento: "12 meses sur lie em barricas de carvalho francês", guarda: "6–8 anos", fontes: "[Verificado — boccati.com.br; grandeadega.com.br; vinoverace.com.br] Grafia oficial: Iribarrem (bodegairibarrem.com.br)", certeza: "verificado" },
