@@ -115,7 +115,7 @@ function carta() {
     const lista = ativos.filter((w) => w.tipo === t && passa(w));
     if (!lista.length) return;
     algum = true;
-    html += `<div class="sec">${l}</div><div class="orn">· · ·</div>` + lista.map(linha).join("");
+    html += `<div class="sec">${l}</div><div class="orn">· · ·</div>` + lista.map((w) => linha(w, false)).join("");
   });
   const fora = vs.filter((w) => Number(w.quantidade) <= 0 && passa(w));
   if (fora.length) { algum = true; html += `<div class="sec">Já degustados</div><div class="orn">· · ·</div>` + fora.map((w) => linha(w, true)).join(""); }
