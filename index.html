@@ -70,6 +70,16 @@
   .tipo-option.active { color: #FFF8F0; border-color: transparent; }
   .submit-btn { width: 100%; margin-top: 20px; margin-bottom: 6px; padding: 13px 0; border-radius: 10px; background: #5C1220; color: #FAF7F2; font-weight: 600; font-size: 15px; border: 1px solid #A9835A; }
   .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .submit-btn.ghost { background: #FFFFFF; color: #5C1220; margin-top: 8px; }
+  .bk-btn { border: none; background: none; color: #A9835A; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 6px; padding: 0; text-decoration: underline; }
+  .bk-help { font-size: 12.5px; color: #7A6F62; margin: 0 0 10px; line-height: 1.4; }
+
+.cert { display:inline-block; font-size:10px; letter-spacing:.04em; text-transform:uppercase; padding:1px 6px; border-radius:8px; margin-left:4px; vertical-align:middle; border:1px solid currentColor; }
+.cert-verificado { color:#5b6b3a; }
+.cert-inferencia { color:#b0683f; }
+.cert-nao_verificado { color:#8a8178; }
+.src-line { font-size:11px; opacity:.75; }
+select.field-input { background:transparent; }
 </style>
 </head>
 <body>
@@ -83,6 +93,7 @@
     <div style="text-align:right;">
       <div class="total-num mono" id="totalGarrafas">0</div>
       <p class="total-label">garrafas</p>
+      <button class="bk-btn" id="backupBtn">Backup</button>
     </div>
   </div>
 </header>
@@ -119,36 +130,101 @@ const STORAGE_KEY = "adega-marques-silva-v1";
 const uid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + "-" + Math.random());
 
 const SEED_WINES = [
-  { id: uid(), nome: "María Magdalena", produtor: "La Legítima by Judas", safra: "2024", uva: "Chardonnay", regiao: "", pais: "", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "María Magdalena", produtor: "La Legítima by Judas", safra: "2024", uva: "Semillón", regiao: "", pais: "", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Barrabas", produtor: "By Judas", safra: "2021", uva: "", regiao: "", pais: "", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "María Magdalena", produtor: "La Legítima by Judas", safra: "2024", uva: "Chardonnay", regiao: "Gualtallary", pais: "Argentina", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "Judas", produtor: "Judas", safra: "2022", uva: "", regiao: "", pais: "", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "Chardonnay Reserva", produtor: "Bodega Iribarren", safra: "2023", uva: "Chardonnay", regiao: "Bento Gonçalves, RS", pais: "Brasil", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "Maragato Cuvée", produtor: "Maragato", safra: "Corte de 6 safras (25% Lote III + 75% 2022)", uva: "", regiao: "", pais: "", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "D.V. Catena Tinto Histórico", produtor: "Catena Zapata", safra: "2024", uva: "Malbec-Petit Verdot", regiao: "Paraje Altamira, Valle de Uco", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "Extra Brut Método Tradicional", produtor: "Valmarino & Churchill", safra: "[Não verificado]", uva: "", regiao: "", pais: "", tipo: "espumante", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Cordero con Piel de Lobo (Demisec)", produtor: "Família Millán", safra: "", uva: "", regiao: "", pais: "Mendoza, Argentina", tipo: "espumante", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "Sparkling wine, estilo demisec" },
   { id: uid(), nome: "Valmarino XXVII", produtor: "Valmarino", safra: "2022", uva: "Cabernet Franc", regiao: "Pinto Bandeira, RS", pais: "Brasil", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "Valmarino XXV", produtor: "Valmarino", safra: "2020", uva: "Cabernet Franc", regiao: "Pinto Bandeira, RS", pais: "Brasil", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Angélica Zapata Cabernet Franc Alta", produtor: "Catena Zapata", safra: "2022", uva: "Cabernet Franc", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "Angélica Zapata Cabernet Franc Alta", produtor: "Catena Zapata", safra: "2022", uva: "Cabernet Franc", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "El Enemigo Malbec Argentino (Renaissance of Malbec)", produtor: "Catena Zapata", safra: "2021", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Sottano Reserva de Família 18M", produtor: "Sottano", safra: "2024", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "Añejado 18 meses em barricas de roble" },
+  { id: uid(), nome: "Sottano Reserva de Família 18M", produtor: "Sottano", safra: "2024", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "Añejado 18 meses em barricas de roble" },
   { id: uid(), nome: "Gran Enemigo Gualtallary Single Vineyard", produtor: "El Enemigo", safra: "2018", uva: "Cabernet Franc", regiao: "Gualtallary", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "El Enemigo Cabernet Franc", produtor: "El Enemigo", safra: "2022", uva: "Cabernet Franc", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Angélica Zapata Cabernet Franc Alta", produtor: "Catena Zapata", safra: "2020", uva: "Cabernet Franc", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 3, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Perro Callejero Blend de Malbec", produtor: "Mosquita Muerta", safra: "2024", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 3, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Sapo de Otro Pozo", produtor: "Mosquita Muerta", safra: "2024", uva: "Malbec-Cabernet Sauvignon", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 6, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "Cordero con Piel de Lobo", produtor: "Mosquita Muerta", safra: "2025", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 9, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "D.V. Catena Cabernet-Malbec", produtor: "Catena Zapata", safra: "2025", uva: "Cabernet Sauvignon-Malbec", regiao: "Vinhedo La Pirámide / Vinhedo Angélica", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 12, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "El Enemigo Cabernet Franc", produtor: "El Enemigo", safra: "2022", uva: "Cabernet Franc", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "Angélica Zapata Cabernet Franc Alta", produtor: "Catena Zapata", safra: "2020", uva: "Cabernet Franc", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "Perro Callejero Blend de Malbec", produtor: "Mosquita Muerta", safra: "2024", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "Sapo de Otro Pozo", produtor: "Mosquita Muerta", safra: "2024", uva: "Malbec-Cabernet Sauvignon", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 5, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "Cordero con Piel de Lobo", produtor: "Mosquita Muerta", safra: "2025", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 3, valor: "", local: "", harmonizacao: "", nota: "" },
+  { id: uid(), nome: "D.V. Catena Cabernet-Malbec", produtor: "Catena Zapata", safra: "2025", uva: "Cabernet Sauvignon-Malbec", regiao: "Vinhedo La Pirámide / Vinhedo Angélica", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 8, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "Sapo de Otro Pozo", produtor: "Mosquita Muerta", safra: "2020", uva: "Malbec-Cabernet Sauvignon", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
   { id: uid(), nome: "Cordero con Piel de Lobo", produtor: "Mosquita Muerta", safra: "2024", uva: "Malbec", regiao: "", pais: "Mendoza, Argentina", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
-  { id: uid(), nome: "LA Jovem Brut", produtor: "LA", safra: "", uva: "", regiao: "", pais: "Brasil", tipo: "espumante", quantidade: 2, valor: "", local: "", harmonizacao: "", nota: "Método Clássico · Vinho Espumante Natural Branco Brut · 12,5% vol" },
+  { id: uid(), nome: "LA Jovem Brut", produtor: "LA", safra: "", uva: "", regiao: "", pais: "Brasil", tipo: "espumante", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "Método Clássico · Vinho Espumante Natural Branco Brut · 12,5% vol" },
 ];
+
+/* ---------- Migração única (v1.1): garrafas adicionadas em 08/11/2026 ---------- */
+const NOVOS_V1_1 = [
+  { nome: "Alvarinho Barricado", produtor: "Hermann", safra: "2024", uva: "Alvarinho", regiao: "", pais: "Brasil", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "12 meses de maturação · Edição limitada 2.600 garrafas · Vinho fino branco seco · 13% vol" },
+  { nome: "Cabernet Franc Reserva", produtor: "Raritá do Vale", safra: "2022", uva: "Cabernet Franc", regiao: "Vale dos Vinhedos, RS", pais: "Brasil", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "Garrafa nº 0517 de 700 · Vinho fino tinto seco · 12,9% vol" },
+  { nome: "Chardonnay Gran Reserva", produtor: "Raritá do Vale", safra: "2022", uva: "Chardonnay", regiao: "", pais: "Brasil", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "Vinho fino branco seco · 13% vol" },
+  { nome: "Bakar Chardonnay", produtor: "Bodega Iribarrem", safra: "2022", uva: "Chardonnay", regiao: "", pais: "Brasil", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "Vinhos de Alta Gama · Vinho fino branco seco · 13% vol" },
+  { nome: "Schweigen Calcaire Blanc", produtor: "Jülg", safra: "2022", uva: "", regiao: "Schweigen, Pfalz", pais: "Alemanha", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" },
+  { nome: "Riesling vom Buntsandstein", produtor: "Wolf Birkweiler", safra: "2024", uva: "Riesling", regiao: "Birkweiler Kastanienbusch, Pfalz", pais: "Alemanha", tipo: "branco", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "Trocken (seco) · Solo de arenito vermelho (Buntsandstein)" },
+];
+const MIGR_KEY = "adega-marques-silva-migr-2026-11-08";
 
 /* ---------- State ---------- */
 let vinhos = [];
 let activeTipo = "todos";
 let query = "";
+
+
+/* ---------- V2: enriquecimento (só preenche campos vazios) ---------- */
+const ENRICH_KEY = "adega-marques-silva-migr-enrich-v4-2026-11-08";
+const V2_FIELDS = ["abv", "composicao", "amadurecimento", "guarda", "fontes", "certeza"];
+const ENRICH = [
+  { k: ["D.V. Catena Tinto Histórico", "Catena Zapata", "2024"], abv: "13,5%", composicao: "77% Malbec, 18% Bonarda, 5% Petit Verdot", amadurecimento: "8–14 meses em carvalho francês", fontes: "[Verificado — vinissimus.com; saratogawine.com] Composição sem Bonarda no cadastro anterior estava incompleta", certeza: "verificado" },
+  { k: ["Gran Enemigo Gualtallary Single Vineyard", "El Enemigo", "2018"], abv: "~13,5%", composicao: "85% Cabernet Franc, 15% Malbec", amadurecimento: "18 meses em barricas", fontes: "[Verificado — Vinous via winebow.com] composição/amadurecimento · [Inferência] ABV de outras safras", certeza: "verificado" },
+  { k: ["El Enemigo Cabernet Franc", "El Enemigo", "2022"], abv: "13,5%", fontes: "[Verificado — vinissimus.com] ABV · Safras anteriores levam ~10% Malbec [Inferência p/ 2022]", certeza: "verificado" },
+  { k: ["Angélica Zapata Cabernet Franc Alta", "Catena Zapata", "2022"], abv: "~13,5%", composicao: "100% Cabernet Franc", regiao: "La Pirámide (Agrelo) + Altamira (Uco)", fontes: "[Inferência] ABV/vinhedos da ficha 2019 (mistral.com.br); ficha 2022 não localizada", certeza: "inferencia" },
+  { k: ["Angélica Zapata Cabernet Franc Alta", "Catena Zapata", "2020"], abv: "~13,5%", composicao: "100% Cabernet Franc", regiao: "La Pirámide (Agrelo) + Altamira (Uco)", fontes: "[Inferência] ABV/vinhedos da ficha 2019 (mistral.com.br); ficha 2020 não localizada", certeza: "inferencia" },
+  { k: ["Sottano Reserva de Família 18M", "Sottano", "2024"], abv: "~14%", composicao: "100% Malbec", regiao: "Perdriel, Luján de Cuyo", amadurecimento: "18 meses · 70% carvalho francês / 30% americano", fontes: "[Verificado — vinofino.co.nz] composição/amadurecimento · [Inferência] ABV (safra 2023: 14,3%)", certeza: "verificado" },
+  { k: ["Perro Callejero Blend de Malbec", "Mosquita Muerta", "2024"], abv: "~14%", composicao: "100% Malbec (Luján de Cuyo + Valle de Uco)", amadurecimento: "6–8 meses em barricas usadas de carvalho francês e americano", fontes: "[Verificado — Wine Folly] composição/amadurecimento · [Inferência] ABV (safras 2020–2022: 13,8–14,5%)", certeza: "verificado" },
+  { k: ["Sapo de Otro Pozo", "Mosquita Muerta", "2024"], composicao: "~60% Malbec, 20% Syrah, 20% Cabernet Franc", amadurecimento: "~50% do vinho em barrica francesa de 1º uso (≈14 meses)", fontes: "[Inferência] Dados de safras 2017–2022 (wine.com; montevideo.com.br). Cadastro diz Malbec-Cabernet Sauvignon: conferir rótulo", certeza: "inferencia" },
+  { k: ["Sapo de Otro Pozo", "Mosquita Muerta", "2020"], composicao: "~60% Malbec, 20% Syrah, 20% Cabernet Franc", amadurecimento: "~50% do vinho em barrica francesa de 1º uso (≈14 meses)", fontes: "[Inferência] Dados de safras 2017–2022 (wine.com). Cadastro diz Malbec-Cabernet Sauvignon: conferir rótulo", certeza: "inferencia" },
+  { k: ["Cordero con Piel de Lobo", "Mosquita Muerta", "2025"], abv: "~13,5%", composicao: "100% Malbec", regiao: "Luján de Cuyo (Perdriel, Agrelo, Barrancas)", amadurecimento: "~6 meses em carvalho usado", fontes: "[Inferência] Safras 2020–2023 (Wine Folly; montevideo.com.br). Importador norueguês cita Valle de Uco p/ 2024", certeza: "inferencia" },
+  { k: ["Cordero con Piel de Lobo", "Mosquita Muerta", "2024"], abv: "~13,5%", composicao: "100% Malbec", regiao: "Luján de Cuyo (Perdriel, Agrelo, Barrancas)", amadurecimento: "~6 meses em carvalho usado", fontes: "[Inferência] Safras 2020–2023 (Wine Folly; montevideo.com.br). Importador norueguês cita Valle de Uco p/ 2024", certeza: "inferencia" },
+  { k: ["D.V. Catena Cabernet-Malbec", "Catena Zapata", "2025"], amadurecimento: "16 meses · 90% carvalho francês (30% novo) + 10% americano novo", fontes: "[Verificado — catenawines.com] ficha sem safra explícita", certeza: "verificado" },
+  { k: ["LA Jovem Brut", "LA", ""], abv: "12,5%", regiao: "Serra do Sudeste, RS", fontes: "[Verificado — rótulo] ABV · [Inferência] LA = Luiz Argenta (zoom.com.br; viniou.com)", certeza: "inferencia" },
+  { k: ["Alvarinho Barricado", "Hermann", "2024"], abv: "13%", regiao: "Serra do Sudeste, RS", amadurecimento: "12 meses", fontes: "[Verificado — rótulo] ABV/amadurecimento · [Verificado — istoedinheiro.com.br] Vinícola Hermann na Serra do Sudeste", certeza: "verificado" },
+  { k: ["Cabernet Franc Reserva", "Raritá do Vale", "2022"], abv: "12,9%", fontes: "[Verificado — rótulo] ABV · sem ficha técnica online localizada", certeza: "verificado" },
+  { k: ["Chardonnay Gran Reserva", "Raritá do Vale", "2022"], abv: "13%", regiao: "Vale dos Vinhedos, RS", fontes: "[Verificado — rótulo] ABV · [Inferência] região (Vivino: vinícola no Vale dos Vinhedos)", certeza: "inferencia" },
+  { k: ["Valmarino XXVII", "Valmarino", "2022"], abv: "14–14,5%", composicao: "100% Cabernet Franc (vinhedos próprios, Pinto Bandeira)", amadurecimento: "24 meses · 80% carvalho americano / 20% francês (50% novo)", guarda: "10–15 anos", fontes: "[Verificado — valmarino.com.br; wineit.com.br] safra 2022 = Ano XXVII, IP Pinto Bandeira. Lojas divergem no amadurecimento (16 meses em algumas): conferir contrarrótulo", certeza: "verificado" },
+  { k: ["Valmarino XXV", "Valmarino", "2020"], composicao: "100% Cabernet Franc", fontes: "[Inferência] Ficha do Ano XXV não localizada; série numerada de safras especiais (XXVII = 2022), IP Pinto Bandeira", certeza: "inferencia" },
+  { k: ["Chardonnay Reserva", "Bodega Iribarren", "2023"], force: { produtor: "Bodega Iribarrem" }, abv: "13%", uva: "Chardonnay", regiao: "Vale dos Vinhedos, Bento Gonçalves, RS", composicao: "100% Chardonnay", amadurecimento: "12 meses sur lie em barricas de carvalho francês", guarda: "6–8 anos", fontes: "[Verificado — boccati.com.br; grandeadega.com.br; vinoverace.com.br] Grafia oficial: Iribarrem (bodegairibarrem.com.br)", certeza: "verificado" },
+  { k: ["Judas", "Judas", "2022"], force: { produtor: "Sottano" }, abv: "14,8–15,4%", composicao: "100% Malbec (Perdriel 60%, Altamira 20%, Gualtallary 20%)", regiao: "Perdriel, Luján de Cuyo", amadurecimento: "18–24 meses em carvalho de 1º uso (70% francês / 30% americano)", guarda: "10–15 anos", fontes: "[Verificado — winenotstore.com; tiempodevinos.com.ar; winesargentinaexpress.com] Bodega Sottano, vinho-ícone. [Inferência] ABV/dados exatos da safra 2022 variam entre fichas", certeza: "verificado" },
+  { k: ["María Magdalena", "La Legítima by Judas", "2024"], abv: "~14%", composicao: "100% Chardonnay (Gualtallary, ~1.400 m)", amadurecimento: "8 meses em barricas/fudres novos de carvalho francês, sem malolática", fontes: "[Verificado — boutiquedevinos.com.ar; segundacopa.com.ar] Bodega Sottano. [Inferência] ABV/amadurecimento de safras anteriores", certeza: "inferencia" },
+  { k: ["Maragato Cuvée", "Maragato", "Corte de 6 safras (25% Lote III + 75% 2022)"], force: { produtor: "Família Bebber (Maragato)" }, nome_v2: "Maragato Cuvée Lote IV", abv: "14%", composicao: "Merlot e Cabernet Franc (Serra Gaúcha); Marselan e Touriga Nacional (Serra do Sudeste); Tannat e Cabernet Sauvignon (Campanha)", regiao: "Flores da Cunha, Serra Gaúcha, RS (750 m)", pais: "Brasil", amadurecimento: "18 meses · 80% carvalho francês / 20% esferas de concreto", guarda: "10–15 anos", fontes: "[Verificado — vinhodeporta.com.br; amazon.com.br] Lote IV, enólogo Felipe Bebber. [Inferência] guarda (fichas de Lotes III/II: 15+ anos)", certeza: "verificado" },
+  { k: ["Extra Brut Método Tradicional", "Valmarino & Churchill", "[Não verificado]"], abv: "12%", uva: "Chardonnay, Pinot Noir", composicao: "70% Chardonnay, 30% Pinot Noir · 4 g/l de açúcar", regiao: "Pinto Bandeira, RS", pais: "Brasil", amadurecimento: "Vinho-base 12 meses em barricas de carvalho + 18–24 meses de autólise", guarda: "6–8 anos", fontes: "[Verificado — valmarino.com.br (safra 2023); vinhosevinhos.com] Safra da sua garrafa não identificada: conferir rótulo (2020/2022/2023 existem)", certeza: "verificado" },
+  { k: ["Riesling vom Buntsandstein", "Wolf Birkweiler", "2024"], composicao: "100% Riesling · Erste Lage (Birkweiler Kastanienbusch)", amadurecimento: "Sem madeira · maceração 12 h · fermentação espontânea", fontes: "[Verificado — weingut-wolf-birkweiler.de] Linha existe como 'Kastanienbusch Riesling aus dem Buntsandstein' 2024. [Inferência] vinificação da ficha do 'Rotliegenden'; ABV do Buntsandstein não localizado (Rotliegenden: 13%)", certeza: "inferencia" },
+  { k: ["El Enemigo Malbec Argentino (Renaissance of Malbec)", "Catena Zapata", "2021"], nome_v2: "Malbec Argentino", abv: "13,9%", composicao: "100% Malbec (50/50 Angélica, Lunlunta + Nicasia, Altamira · vinhas pré-filoxera)", regiao: "Lunlunta (Maipú) + Altamira (Uco)", amadurecimento: "15–18 meses em carvalho francês", guarda: "2024–2034+", fontes: "[Verificado — ficha Catena Zapata (db.wine); catenawines.com; trialto/Atkin] ABV 13,9% (outras lojas citam 14%). [Inferência] guarda", certeza: "verificado" },
+  { k: ["Bakar Chardonnay", "Bodega Iribarrem", "2022"], abv: "12,9%", composicao: "100% Chardonnay", regiao: "Vale dos Vinhedos, Bento Gonçalves, RS", amadurecimento: "Fermentação em barricas de carvalho francês Marsannay + 12 meses sur lie", fontes: "[Verificado — bodegairibarrem.com.br/vinhos/bakar] ABV 12,9% no site (rótulo arredonda para 13%). Guarda não informada pela vinícola", certeza: "verificado" },
+  { k: ["Schweigen Calcaire Blanc", "Jülg", "2022"], abv: "12,5%", uva: "Chardonnay, Weißburgunder", composicao: "Chardonnay + Weißburgunder · VDP.Ortswein Schweigen · solo calcário", amadurecimento: "12 meses sobre borras totais (barrique) + borras finas em aço (12–18 meses)", fontes: "[Verificado — ficha Jülg 2024 (PDF); Falstaff 2022] Ficha oficial é da safra 2024 (13%, 12+12 meses); 12,5% e 18 meses em aço vêm do Falstaff p/ 2022. Em conversão para orgânico", certeza: "verificado" }
+];
+
+function isAutoSrc(t) { return /^\[(Verificado|Inferência|Não verificado)/.test(t || ""); }
+function applyEnrichment() {
+  try {
+    if (localStorage.getItem(ENRICH_KEY)) return;
+    ENRICH.forEach((e) => {
+      const w = vinhos.find((v) => v.nome === e.k[0] && (v.produtor === e.k[1] || (e.force && v.produtor === (e.force.produtor || ""))) && (v.safra || "") === e.k[2]);
+      if (!w) return;
+      const auto = isAutoSrc(w.fontes);
+      if (e.force && e.force.produtor && w.produtor === e.k[1]) w.produtor = e.force.produtor;
+      if (e.nome_v2 && w.nome === e.k[0]) w.nome = e.nome_v2;
+      Object.keys(e).forEach((f) => {
+        if (f === "k" || f === "force" || f === "nome_v2") return;
+        const empty = !w[f] || String(w[f]).trim() === "";
+        if (empty || (auto && V2_FIELDS.includes(f))) w[f] = e[f];
+      });
+    });
+    persist();
+    localStorage.setItem(ENRICH_KEY, "1");
+  } catch (err) {
+    console.error("Enriquecimento não aplicado:", err);
+  }
+}
 
 function loadData() {
   try {
@@ -170,6 +246,61 @@ function persist() {
   } catch (e) {
     console.error("Não foi possível salvar localmente:", e);
   }
+}
+
+function applyMigrations() {
+  try {
+    if (localStorage.getItem(MIGR_KEY)) return;
+    NOVOS_V1_1.forEach((n) => {
+      const dup = vinhos.some((v) => v.nome === n.nome && v.produtor === n.produtor && v.safra === n.safra);
+      if (!dup) vinhos.push({ ...n, id: uid() });
+    });
+    persist();
+    localStorage.setItem(MIGR_KEY, "1");
+  } catch (e) {
+    console.error("Migração não aplicada:", e);
+  }
+}
+
+/* ---------- Backup / Restaurar ---------- */
+function openBackup() {
+  const json = JSON.stringify(vinhos, null, 2);
+  document.getElementById("modalRoot").innerHTML = `
+    <div class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 class="serif">Backup da adega</h2>
+          <button class="icon-btn" id="closeBk" aria-label="Fechar" style="padding:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <p class="bk-help">Toque em <b>Copiar backup</b> e cole em um lugar seguro (Notas, e-mail ou aqui no chat). Para restaurar, cole o texto na caixa e toque em <b>Restaurar</b>.</p>
+        <textarea class="field-textarea" id="bkText" rows="10" style="font-family:'Courier New',monospace;font-size:12px;">${escapeHtml(json)}</textarea>
+        <button class="submit-btn" id="bkCopy">Copiar backup</button>
+        <button class="submit-btn ghost" id="bkRestore">Restaurar do texto</button>
+      </div>
+    </div>`;
+  document.getElementById("closeBk").addEventListener("click", closeForm);
+  document.getElementById("bkCopy").addEventListener("click", async () => {
+    const ta = document.getElementById("bkText");
+    ta.focus();
+    ta.setSelectionRange(0, ta.value.length);
+    let ok = false;
+    try { await navigator.clipboard.writeText(ta.value); ok = true; } catch (e) {}
+    if (!ok) { try { ok = document.execCommand("copy"); } catch (e) {} }
+    document.getElementById("bkCopy").textContent = ok ? "Copiado ✓" : "Selecione o texto e copie manualmente";
+  });
+  document.getElementById("bkRestore").addEventListener("click", () => {
+    try {
+      const data = JSON.parse(document.getElementById("bkText").value);
+      if (!Array.isArray(data) || !data.every((v) => v && typeof v.nome === "string")) throw new Error("formato inválido");
+      if (!confirm("Substituir a adega atual por " + data.length + " itens do backup?")) return;
+      vinhos = data.map((v) => ({ ...v, id: v.id || uid() }));
+      persist();
+      closeForm();
+      renderAll();
+    } catch (e) {
+      alert("Texto de backup inválido. Nada foi alterado.");
+    }
+  });
 }
 
 function tipoInfo(id) {
@@ -226,7 +357,13 @@ function renderList() {
     const extraLines = [];
     if (v.harmonizacao) extraLines.push(`<p><span class="label">Harmoniza com:</span> ${escapeHtml(v.harmonizacao)}</p>`);
     if (v.nota) extraLines.push(`<p><span class="label">Nota:</span> ${escapeHtml(v.nota)}</p>`);
-    const hasExtra = v.harmonizacao || v.nota || v.valor || v.local;
+    if (v.composicao) extraLines.push(`<p><span class="label">Composição:</span> ${escapeHtml(v.composicao)}</p>`);
+    if (v.amadurecimento) extraLines.push(`<p><span class="label">Amadurecimento:</span> ${escapeHtml(v.amadurecimento)}</p>`);
+    if (v.abv || v.guarda) extraLines.push(`<p><span class="label">${v.abv ? "ABV:" : ""}</span> ${escapeHtml(v.abv || "")}${v.abv && v.guarda ? " · " : ""}${v.guarda ? "Guarda: " + escapeHtml(v.guarda) : ""}</p>`);
+    if (v.fontes) extraLines.push(`<p class="src-line"><span class="label">Fontes:</span> ${escapeHtml(v.fontes)}</p>`);
+    const hasExtra = v.harmonizacao || v.nota || v.valor || v.local || v.composicao || v.amadurecimento || v.abv || v.guarda || v.fontes;
+    const certLabel = { verificado: "Verificado", inferencia: "Inferência", nao_verificado: "Não verificado" }[v.certeza];
+    const certBadge = certLabel ? `<span class="cert cert-${v.certeza}">${certLabel}</span>` : "";
 
     return `
       <div class="card" data-id="${v.id}">
@@ -235,7 +372,7 @@ function renderList() {
             <span class="tipo-dot" style="background:${info.color};" title="${info.label}"></span>
             <div style="min-width:0;">
               <h3 class="card-title serif">${escapeHtml(v.nome)}</h3>
-              <p class="card-sub">${escapeHtml([v.produtor, v.safra].filter(Boolean).join(" · "))}</p>
+              <p class="card-sub">${escapeHtml([v.produtor, v.safra].filter(Boolean).join(" · "))} ${certBadge}</p>
               ${(v.uva || v.regiao || v.pais) ? `<p class="card-origin">${escapeHtml([v.uva, v.regiao, v.pais].filter(Boolean).join(" · "))}</p>` : ""}
             </div>
           </div>
@@ -286,7 +423,7 @@ function deleteWine(id) {
 }
 
 /* ---------- Form modal ---------- */
-const emptyForm = { id: null, nome: "", produtor: "", safra: "", uva: "", regiao: "", pais: "", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "" };
+const emptyForm = { id: null, nome: "", produtor: "", safra: "", uva: "", regiao: "", pais: "", tipo: "tinto", quantidade: 1, valor: "", local: "", harmonizacao: "", nota: "", abv: "", composicao: "", amadurecimento: "", guarda: "", fontes: "", certeza: "" };
 let formState = { ...emptyForm };
 
 function openForm(id) {
@@ -341,6 +478,22 @@ function renderForm() {
           <div><label class="field-label">Local de compra</label><input class="field-input" id="f_local" value="${escapeHtml(formState.local)}" /></div>
           <div><label class="field-label">Harmonização</label><textarea class="field-textarea" rows="2" id="f_harmonizacao">${escapeHtml(formState.harmonizacao)}</textarea></div>
           <div><label class="field-label">Nota de degustação</label><textarea class="field-textarea" rows="2" id="f_nota">${escapeHtml(formState.nota)}</textarea></div>
+          <div class="form-row-2">
+            <div><label class="field-label">ABV</label><input class="field-input" id="f_abv" value="${escapeHtml(formState.abv || "")}" /></div>
+            <div><label class="field-label">Janela de guarda</label><input class="field-input" id="f_guarda" placeholder="ex.: 2026–2032" value="${escapeHtml(formState.guarda || "")}" /></div>
+          </div>
+          <div><label class="field-label">Composição</label><input class="field-input" id="f_composicao" value="${escapeHtml(formState.composicao || "")}" /></div>
+          <div><label class="field-label">Amadurecimento</label><input class="field-input" id="f_amadurecimento" value="${escapeHtml(formState.amadurecimento || "")}" /></div>
+          <div><label class="field-label">Fontes</label><textarea class="field-textarea" rows="2" id="f_fontes">${escapeHtml(formState.fontes || "")}</textarea></div>
+          <div>
+            <label class="field-label">Certeza dos dados</label>
+            <select class="field-input" id="f_certeza">
+              <option value="" ${!formState.certeza ? "selected" : ""}>—</option>
+              <option value="verificado" ${formState.certeza === "verificado" ? "selected" : ""}>Verificado</option>
+              <option value="inferencia" ${formState.certeza === "inferencia" ? "selected" : ""}>Inferência</option>
+              <option value="nao_verificado" ${formState.certeza === "nao_verificado" ? "selected" : ""}>Não verificado</option>
+            </select>
+          </div>
         </div>
         <button class="submit-btn" id="submitFormBtn" ${!formState.nome.trim() ? "disabled" : ""}>${formState.id ? "Salvar alterações" : "Adicionar à adega"}</button>
       </div>
@@ -374,6 +527,9 @@ function syncFormFromInputs() {
   formState.local = document.getElementById("f_local").value;
   formState.harmonizacao = document.getElementById("f_harmonizacao").value;
   formState.nota = document.getElementById("f_nota").value;
+  ["abv", "composicao", "amadurecimento", "guarda", "fontes", "certeza"].forEach((f) => {
+    formState[f] = document.getElementById("f_" + f).value;
+  });
 }
 
 function submitForm() {
@@ -396,8 +552,11 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
   renderList();
 });
 document.getElementById("fabBtn").addEventListener("click", () => openForm(null));
+document.getElementById("backupBtn").addEventListener("click", openBackup);
 
 loadData();
+applyMigrations();
+applyEnrichment();
 renderAll();
 </script>
 </body>
