@@ -20,7 +20,13 @@
    "composicao": "100% Chardonnay (Gualtallary, ~1.400 m)",
    "amadurecimento": "8 meses em barricas/fudres novos de carvalho francês, sem malolática",
    "fontes": "[Verificado — boutiquedevinos.com.ar; segundacopa.com.ar] Bodega Sottano. [Inferência] ABV/amadurecimento de safras anteriores",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "judas-sottano-2022",
@@ -41,7 +47,13 @@
    "amadurecimento": "18–24 meses em carvalho de 1º uso (70% francês / 30% americano)",
    "guarda": "10–15 anos",
    "fontes": "[Verificado — winenotstore.com; tiempodevinos.com.ar; winesargentinaexpress.com] Bodega Sottano, vinho-ícone. [Inferência] ABV/dados exatos da safra 2022 variam entre fichas",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": 2025,
+   "guarda_ate": 2037,
+   "guarda_fonte": "[Inferência] potencial de guarda 10–15 anos (cepadevinos.com, winenotstore.com)"
   },
   {
    "id": "chardonnay-reserva-bodega-iribarrem-2023",
@@ -62,7 +74,13 @@
    "amadurecimento": "12 meses sur lie em barricas de carvalho francês",
    "guarda": "6–8 anos",
    "fontes": "[Verificado — boccati.com.br; grandeadega.com.br; vinoverace.com.br] Grafia oficial: Iribarrem (bodegairibarrem.com.br)",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": 2024,
+   "guarda_ate": 2031,
+   "guarda_fonte": "[Inferência] potencial de guarda 6–8 anos (vinoverace.com.br, cainellibebidas.com.br)"
   },
   {
    "id": "maragato-cuvee-lote-iv-familia-bebber-maragato-nv",
@@ -83,7 +101,13 @@
    "amadurecimento": "18 meses · 80% carvalho francês / 20% esferas de concreto",
    "guarda": "10–15 anos",
    "fontes": "[Verificado — vinhodeporta.com.br; amazon.com.br] Lote IV, enólogo Felipe Bebber. [Inferência] guarda (fichas de Lotes III/II: 15+ anos)",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "d-v-catena-tinto-historico-catena-zapata-2024",
@@ -103,7 +127,13 @@
    "composicao": "77% Malbec, 18% Bonarda, 5% Petit Verdot",
    "amadurecimento": "8–14 meses em carvalho francês",
    "fontes": "[Verificado — vinissimus.com; saratogawine.com] Composição sem Bonarda no cadastro anterior estava incompleta",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "extra-brut-metodo-tradicional-valmarino-churchill-nv",
@@ -124,7 +154,13 @@
    "amadurecimento": "Vinho-base 12 meses em barricas de carvalho + 18–24 meses de autólise",
    "guarda": "6–8 anos",
    "fontes": "[Verificado — valmarino.com.br (safra 2023); vinhosevinhos.com] Safra da sua garrafa não identificada: conferir rótulo (2020/2022/2023 existem)",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "valmarino-xxvii-valmarino-2022",
@@ -145,7 +181,13 @@
    "amadurecimento": "24 meses · 80% carvalho americano / 20% francês (50% novo)",
    "guarda": "10–15 anos",
    "fontes": "[Verificado — valmarino.com.br; wineit.com.br] safra 2022 = Ano XXVII, IP Pinto Bandeira. Lojas divergem no amadurecimento (16 meses em algumas): conferir contrarrótulo",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": 2025,
+   "guarda_ate": 2037,
+   "guarda_fonte": "[Inferência] potencial de guarda 10–15 anos (wineit.com.br, bahwine.com.br)"
   },
   {
    "id": "valmarino-xxv-valmarino-2020",
@@ -163,7 +205,13 @@
    "nota": "",
    "composicao": "100% Cabernet Franc",
    "fontes": "[Inferência] Ficha do Ano XXV não localizada; série numerada de safras especiais (XXVII = 2022), IP Pinto Bandeira",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "angelica-zapata-cabernet-franc-alta-catena-zapata-2022",
@@ -182,7 +230,13 @@
    "abv": "~13,5%",
    "composicao": "100% Cabernet Franc",
    "fontes": "[Inferência] ABV/vinhedos da ficha 2019 (mistral.com.br); ficha 2022 não localizada",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "malbec-argentino-catena-zapata-2021",
@@ -203,7 +257,13 @@
    "amadurecimento": "15–18 meses em carvalho francês",
    "guarda": "2024–2034+",
    "fontes": "[Verificado — ficha Catena Zapata (db.wine); catenawines.com; trialto/Atkin] ABV 13,9% (outras lojas citam 14%). [Inferência] guarda",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": 2024,
+   "guarda_ate": 2034,
+   "guarda_fonte": "[Inferência] estimativa a partir da crítica"
   },
   {
    "id": "sottano-reserva-de-familia-18m-sottano-2024",
@@ -223,7 +283,13 @@
    "composicao": "100% Malbec",
    "amadurecimento": "18 meses · 70% carvalho francês / 30% americano",
    "fontes": "[Verificado — vinofino.co.nz] composição/amadurecimento · [Inferência] ABV (safra 2023: 14,3%)",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "gran-enemigo-gualtallary-single-vineyard-el-enemigo-2018",
@@ -243,7 +309,13 @@
    "composicao": "85% Cabernet Franc, 15% Malbec",
    "amadurecimento": "18 meses em barricas",
    "fontes": "[Verificado — Vinous via winebow.com] composição/amadurecimento · [Inferência] ABV de outras safras",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "el-enemigo-cabernet-franc-el-enemigo-2022",
@@ -261,7 +333,13 @@
    "nota": "",
    "abv": "13,5%",
    "fontes": "[Verificado — vinissimus.com] ABV · Safras anteriores levam ~10% Malbec [Inferência p/ 2022]",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "angelica-zapata-cabernet-franc-alta-catena-zapata-2020",
@@ -280,7 +358,13 @@
    "abv": "~13,5%",
    "composicao": "100% Cabernet Franc",
    "fontes": "[Inferência] ABV/vinhedos da ficha 2019 (mistral.com.br); ficha 2020 não localizada",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "perro-callejero-blend-de-malbec-mosquita-muerta-2024",
@@ -300,7 +384,13 @@
    "composicao": "100% Malbec (Luján de Cuyo + Valle de Uco)",
    "amadurecimento": "6–8 meses em barricas usadas de carvalho francês e americano",
    "fontes": "[Verificado — Wine Folly] composição/amadurecimento · [Inferência] ABV (safras 2020–2022: 13,8–14,5%)",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "sapo-de-otro-pozo-mosquita-muerta-2024",
@@ -319,7 +409,13 @@
    "composicao": "~60% Malbec, 20% Syrah, 20% Cabernet Franc",
    "amadurecimento": "~50% do vinho em barrica francesa de 1º uso (≈14 meses)",
    "fontes": "[Inferência] Dados de safras 2017–2022 (wine.com; montevideo.com.br). Cadastro diz Malbec-Cabernet Sauvignon: conferir rótulo",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "cordero-con-piel-de-lobo-mosquita-muerta-2025",
@@ -339,7 +435,13 @@
    "composicao": "100% Malbec",
    "amadurecimento": "~6 meses em carvalho usado",
    "fontes": "[Inferência] Safras 2020–2023 (Wine Folly; montevideo.com.br). Importador norueguês cita Valle de Uco p/ 2024",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "d-v-catena-cabernet-malbec-catena-zapata-2025",
@@ -357,7 +459,13 @@
    "nota": "",
    "amadurecimento": "16 meses · 90% carvalho francês (30% novo) + 10% americano novo",
    "fontes": "[Verificado — catenawines.com] ficha sem safra explícita",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "sapo-de-otro-pozo-mosquita-muerta-2020",
@@ -376,7 +484,13 @@
    "composicao": "~60% Malbec, 20% Syrah, 20% Cabernet Franc",
    "amadurecimento": "~50% do vinho em barrica francesa de 1º uso (≈14 meses)",
    "fontes": "[Inferência] Dados de safras 2017–2022 (wine.com). Cadastro diz Malbec-Cabernet Sauvignon: conferir rótulo",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "cordero-con-piel-de-lobo-mosquita-muerta-2024",
@@ -396,7 +510,13 @@
    "composicao": "100% Malbec",
    "amadurecimento": "~6 meses em carvalho usado",
    "fontes": "[Inferência] Safras 2020–2023 (Wine Folly; montevideo.com.br). Importador norueguês cita Valle de Uco p/ 2024",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "id": "la-jovem-brut-la",
@@ -414,7 +534,13 @@
    "nota": "Método Clássico · Vinho Espumante Natural Branco Brut · 12,5% vol",
    "abv": "12,5%",
    "fontes": "[Verificado — rótulo] ABV · [Inferência] LA = Luiz Argenta (zoom.com.br; viniou.com)",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "nome": "Alvarinho Barricado",
@@ -433,7 +559,13 @@
    "abv": "13%",
    "amadurecimento": "12 meses",
    "fontes": "[Verificado — rótulo] ABV/amadurecimento · [Verificado — istoedinheiro.com.br] Vinícola Hermann na Serra do Sudeste",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "nome": "Cabernet Franc Reserva",
@@ -451,7 +583,13 @@
    "id": "cabernet-franc-reserva-rarita-do-vale-2022",
    "abv": "12,9%",
    "fontes": "[Verificado — rótulo] ABV · sem ficha técnica online localizada",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "nome": "Chardonnay Gran Reserva",
@@ -472,7 +610,13 @@
    "amadurecimento": "6–8 meses em barricas de carvalho + aduelas de carvalho francês em tanque inox",
    "guarda": "",
    "fontes": "[Verificado — rótulo] ABV 13%. [Inferência] amadurecimento da ficha oficial do Chardonnay safra 2021 (11,5%, 1.400 garrafas, colheita manual): safra e teor diferem da sua garrafa 2022",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "nome": "Bakar Chardonnay",
@@ -492,7 +636,13 @@
    "composicao": "100% Chardonnay",
    "amadurecimento": "Fermentação em barricas de carvalho francês Marsannay + 12 meses sur lie",
    "fontes": "[Verificado — bodegairibarrem.com.br/vinhos/bakar] ABV 12,9% no site (rótulo arredonda para 13%). Guarda não informada pela vinícola",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "nome": "Schweigen Calcaire Blanc",
@@ -512,7 +662,13 @@
    "composicao": "Chardonnay + Weißburgunder · VDP.Ortswein Schweigen · solo calcário",
    "amadurecimento": "12 meses sobre borras totais (barrique) + borras finas em aço (12–18 meses)",
    "fontes": "[Verificado — ficha Jülg 2024 (PDF); Falstaff 2022] Ficha oficial é da safra 2024 (13%, 12+12 meses); 12,5% e 18 meses em aço vêm do Falstaff p/ 2022. Em conversão para orgânico",
-   "certeza": "verificado"
+   "certeza": "verificado",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   },
   {
    "nome": "Riesling vom Buntsandstein",
@@ -531,7 +687,13 @@
    "composicao": "100% Riesling · Erste Lage (Birkweiler Kastanienbusch)",
    "amadurecimento": "Sem madeira · maceração 12 h · fermentação espontânea",
    "fontes": "[Verificado — weingut-wolf-birkweiler.de] Linha existe como 'Kastanienbusch Riesling aus dem Buntsandstein' 2024. [Inferência] vinificação da ficha do 'Rotliegenden'; ABV do Buntsandstein não localizado (Rotliegenden: 13%)",
-   "certeza": "inferencia"
+   "certeza": "inferencia",
+   "posicao": "",
+   "foto_frente": "",
+   "foto_verso": "",
+   "guarda_de": null,
+   "guarda_ate": null,
+   "guarda_fonte": ""
   }
  ],
  "historico": []

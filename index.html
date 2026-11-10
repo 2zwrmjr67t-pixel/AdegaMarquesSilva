@@ -10,165 +10,244 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg:#FAF6EE; --ink:#2B2320; --wine:#5C1220; --olive:#5B6B3A; --terra:#B0683F; --muted:#8A7A66; --soft:#6B5D4F; --line:#C9B9A0; --dot:#D9CDB8; }
-  * { box-sizing: border-box; }
+  :root { --bg:#FAF6EE; --paper:#FFFDF8; --ink:#2B2320; --wine:#5C1220; --olive:#5B6B3A; --terra:#B0683F; --gold:#C9A75A; --muted:#8A7A66; --soft:#6B5D4F; --line:#C9B9A0; --dot:#D9CDB8; --sand:#E9E1D3; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
   html, body { margin:0; background:var(--bg); color:var(--ink); }
-  body { font-family:'EB Garamond', Georgia, serif; font-size:17px; -webkit-font-smoothing:antialiased; padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom); }
-  .wrap { max-width:560px; margin:0 auto; padding:34px 24px 48px; }
-  .sc { font-variant:small-caps; letter-spacing:.12em; color:var(--muted); font-size:14px; }
-  .disp { font-family:'Cormorant Garamond', Georgia, serif; font-weight:500; }
-  hr.rule { border:0; border-top:0.5px solid var(--line); margin:0; }
-  .mast { text-align:center; }
-  .mast h1 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; color:var(--wine); font-size:38px; line-height:1.05; margin:6px 0 10px; }
-  .summary { text-align:center; font-style:italic; color:var(--soft); font-size:16px; padding:8px 0; }
-  .filters { display:flex; justify-content:center; gap:18px; margin:16px 0 6px; flex-wrap:wrap; }
-  .filters button { background:none; border:0; padding:4px 0; font-family:inherit; font-variant:small-caps; letter-spacing:.12em; font-size:15px; color:var(--muted); cursor:pointer; border-bottom:0.5px solid transparent; }
-  .filters button.on { color:var(--wine); border-bottom-color:var(--wine); }
-  .search { display:block; width:100%; margin:8px 0 0; border:0; border-bottom:0.5px solid var(--dot); background:transparent; font-family:inherit; font-style:italic; font-size:16px; color:var(--ink); padding:8px 2px; text-align:center; outline:none; }
-  .sec { text-align:center; font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:26px; color:var(--wine); margin:30px 0 2px; }
-  .orn { text-align:center; color:var(--terra); font-size:13px; letter-spacing:.5em; margin:0 0 6px; }
-  .row { display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:12px 0; border-bottom:0.5px dotted var(--dot); cursor:pointer; }
-  .row:last-child { border-bottom:0; }
-  .row:active { background: rgba(92,18,32,.04); }
-  .nm { font-family:'Cormorant Garamond',Georgia,serif; font-size:22px; line-height:1.15; color:var(--ink); }
-  .pr { font-variant:small-caps; letter-spacing:.08em; font-size:14px; color:var(--muted); margin-top:2px; }
-  .rt { text-align:right; flex-shrink:0; }
-  .yr { font-variant-numeric:oldstyle-nums; font-size:19px; color:var(--wine); }
-  .q { font-size:14px; color:var(--olive); font-style:italic; }
-  .gone .nm, .gone .yr { color:var(--muted); }
+  body { font-family:'EB Garamond', Georgia, serif; font-size:16px; -webkit-font-smoothing:antialiased; }
+  .d { font-family:'Cormorant Garamond', Georgia, serif; font-weight:500; }
+  .sc { font-variant:small-caps; letter-spacing:.1em; color:var(--muted); font-size:13px; }
+  .mt { font-size:13px; color:var(--muted); }
+  .hd { position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:0.5px solid var(--line); padding: calc(env(safe-area-inset-top) + 16px) 20px 10px; }
+  .hd-in, .bd { max-width:720px; margin:0 auto; }
+  .top { display:flex; justify-content:space-between; align-items:flex-end; }
+  .title { font-size:26px; color:var(--wine); line-height:1.05; }
+  .total { font-size:34px; color:var(--wine); line-height:1; text-align:right; }
+  .bar { display:flex; height:5px; border-radius:3px; overflow:hidden; margin:12px 0 0; background:var(--sand); }
+  .filters { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
+  .pill { font-family:inherit; font-size:14px; border:0.5px solid var(--line); border-radius:14px; padding:3px 11px; color:var(--soft); background:transparent; cursor:pointer; }
+  .pill .n { color:var(--muted); font-size:12px; margin-left:3px; }
+  .pill.on { background:var(--wine); color:var(--bg); border-color:var(--wine); }
+  .pill.on .n { color:#E6CFC4; }
+  .bd { padding:6px 20px calc(env(safe-area-inset-bottom) + 40px); }
+  .h { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:22px; color:var(--wine); margin:22px 0 10px; }
+  .hrow { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  .search { border:0; border-bottom:0.5px solid var(--dot); background:transparent; font-family:inherit; font-style:italic; font-size:15px; color:var(--ink); padding:4px 2px; width:150px; outline:none; text-align:right; }
+  .ready { display:grid; grid-template-columns:1fr 1fr; gap:12px 14px; }
+  .rd { border-left:2px solid var(--olive); padding:2px 0 2px 10px; cursor:pointer; }
+  .rd.urg { border-left-color:var(--terra); }
+  .rd .nm { font-family:'Cormorant Garamond',Georgia,serif; font-size:18px; line-height:1.12; }
+  .rd .st { font-size:13px; color:var(--olive); font-style:italic; }
+  .rd.urg .st { color:var(--terra); }
+  .note { font-size:13px; color:var(--muted); font-style:italic; margin-top:8px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:12px; }
+  .card { border:0.5px solid var(--dot); border-radius:10px; overflow:hidden; background:var(--paper); cursor:pointer; display:flex; flex-direction:column; }
+  .card:active { transform:scale(.985); }
+  .lab { aspect-ratio: 3 / 3.4; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:10px; position:relative; overflow:hidden; }
+  .lab img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .lab .lp { font-variant:small-caps; letter-spacing:.1em; font-size:12px; opacity:.8; }
+  .lab .ln { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; font-size:21px; line-height:1.05; margin:5px 0; }
+  .lab .ly { font-style:italic; font-size:14px; }
+  .lab .rule { width:28px; border-top:0.5px solid currentColor; opacity:.6; margin:6px auto 0; }
+  .t-tinto { background:var(--wine); color:var(--bg); }
+  .t-branco { background:#EDE3C4; color:#5A4A1E; }
+  .t-espumante { background:#E3E6D6; color:#3F4A25; }
+  .t-rose { background:#F1DAD3; color:#7A3524; }
+  .t-fortificado { background:#4A2A1A; color:#F1E4D2; }
+  .dotst { position:absolute; top:8px; right:8px; width:8px; height:8px; border-radius:50%; border:1px solid rgba(255,255,255,.7); z-index:2; }
+  .cap { padding:8px 10px 10px; }
+  .cap .nm { font-family:'Cormorant Garamond',Georgia,serif; font-size:17px; line-height:1.1; }
+  .cap .row { display:flex; justify-content:space-between; margin-top:5px; font-size:13px; color:var(--muted); }
+  .cap .q { color:var(--olive); font-style:italic; }
+  .gone { opacity:.55; }
   .foot { text-align:center; margin-top:34px; font-size:13px; color:var(--muted); font-style:italic; line-height:1.6; }
-  .back { background:none; border:0; font-family:inherit; font-variant:small-caps; letter-spacing:.12em; font-size:15px; color:var(--muted); padding:0; cursor:pointer; }
-  .f-prod { text-align:center; margin-top:20px; }
-  .f-name { text-align:center; font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; font-size:36px; line-height:1.08; color:var(--wine); margin:6px 0 4px; }
-  .f-sub { text-align:center; font-style:italic; color:var(--soft); font-size:17px; }
-  .lb { font-variant:small-caps; letter-spacing:.1em; font-size:14px; color:var(--muted); margin:18px 0 3px; }
-  .tx { font-size:17px; line-height:1.55; margin:0; }
-  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .pair { background:rgba(176,104,63,.07); border-top:0.5px solid var(--terra); border-bottom:0.5px solid var(--terra); padding:12px 4px 14px; margin-top:22px; }
+  .empty { text-align:center; font-style:italic; color:var(--muted); margin:30px 0; }
+  /* ficha */
+  .hero { position:relative; background:var(--sand); height:min(62vh, 440px); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .hero img { width:100%; height:100%; object-fit:contain; background:var(--sand); }
+  .hero .lab { width:100%; height:100%; aspect-ratio:auto; }
+  .hero .lab .ln { font-size:34px; }
+  .hero.sem { height:150px; }
+  .hero.sem .lab .ln, .hero.sem .lab .ly, .hero.sem .lab .rule { display:none; }
+  .back { position:absolute; top: calc(env(safe-area-inset-top) + 14px); left:16px; z-index:3; background:rgba(250,246,238,.92); border:0.5px solid var(--line); border-radius:14px; padding:4px 12px; font-family:inherit; font-variant:small-caps; letter-spacing:.1em; font-size:14px; color:var(--soft); cursor:pointer; }
+  .flip { position:absolute; bottom:12px; right:12px; z-index:3; background:rgba(250,246,238,.92); border:0.5px solid var(--line); border-radius:14px; padding:3px 11px; font-family:inherit; font-size:13px; font-style:italic; color:var(--soft); cursor:pointer; }
+  .fb { max-width:620px; margin:0 auto; padding:18px 22px calc(env(safe-area-inset-bottom) + 40px); }
+  .f-prod { text-align:center; }
+  .f-name { text-align:center; font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; font-size:32px; line-height:1.08; color:var(--wine); margin:4px 0; }
+  .f-sub { text-align:center; font-style:italic; color:var(--soft); font-size:16px; }
+  .lb { font-variant:small-caps; letter-spacing:.1em; font-size:13px; color:var(--muted); margin:18px 0 3px; }
+  .tx { font-size:16px; line-height:1.55; margin:0; }
+  .g2 { display:grid; grid-template-columns:1fr 1fr; gap:4px 14px; }
+  .gw { margin-top:20px; }
+  .gbar { position:relative; height:8px; border-radius:4px; background:var(--sand); margin-top:6px; }
+  .gfill { position:absolute; top:0; bottom:0; border-radius:4px; background:var(--olive); }
+  .gend { position:absolute; top:0; bottom:0; border-radius:0 4px 4px 0; background:var(--terra); }
+  .gnow { position:absolute; top:-5px; width:2px; height:18px; background:var(--ink); }
+  .glab { display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-top:7px; }
+  .pair { background:rgba(176,104,63,.07); border-top:0.5px solid var(--terra); border-bottom:0.5px solid var(--terra); padding:12px 6px 14px; margin-top:22px; }
   .pair .lb { margin-top:0; color:var(--terra); }
   .pair ul { margin:4px 0 0; padding:0; list-style:none; }
-  .pair li { font-size:17px; line-height:1.5; padding:3px 0; }
+  .pair li { font-size:16px; line-height:1.5; padding:2px 0; }
   .pair li:before { content:"— "; color:var(--terra); }
-  .badge { display:inline-block; font-variant:small-caps; letter-spacing:.08em; font-size:13px; border:0.5px solid currentColor; border-radius:10px; padding:0 8px; }
+  .badge { display:inline-block; font-variant:small-caps; letter-spacing:.08em; font-size:12px; border:0.5px solid currentColor; border-radius:10px; padding:0 8px; }
   .b-verificado { color:var(--olive); } .b-inferencia { color:var(--terra); } .b-nao_verificado { color:var(--muted); }
-  .stock { display:flex; justify-content:space-between; align-items:center; margin-top:22px; padding-top:14px; border-top:0.5px solid var(--line); }
-  .stock .n { font-family:'Cormorant Garamond',Georgia,serif; font-size:26px; color:var(--wine); }
-  .src { font-size:14px; color:var(--muted); font-style:italic; line-height:1.5; margin-top:14px; }
-  .hist li { font-size:16px; line-height:1.5; }
-  .empty { text-align:center; font-style:italic; color:var(--muted); margin:30px 0; }
+  .src { font-size:13px; color:var(--muted); font-style:italic; line-height:1.5; margin-top:14px; }
+  .hist { margin:2px 0 0; padding-left:18px; } .hist li { font-size:15px; line-height:1.5; }
 </style>
 </head>
 <body>
-<div class="wrap" id="app"><p class="empty">Abrindo a carta…</p></div>
+<div id="app"><p class="empty" style="margin-top:80px">Abrindo a adega…</p></div>
 <script>
 const DATA_URL = "adega.json";
 const CACHE_KEY = "adega-marques-silva-carta-cache";
-const SECOES = [["tinto","Tintos"],["branco","Brancos"],["rose","Rosés"],["espumante","Espumantes"],["fortificado","Fortificados"]];
+const TIPOS = [["tinto","Tintos","#5C1220"],["branco","Brancos","#C9A75A"],["espumante","Espumantes","#5B6B3A"],["rose","Rosés","#C98A7A"],["fortificado","Fortificados","#4A2A1A"]];
 const CERT = { verificado:"Verificado", inferencia:"Inferência", nao_verificado:"Não verificado" };
-let D = null, filtro = "todos", busca = "", origem = "";
+const ANO = new Date().getFullYear();
+let D = null, filtro = "todos", busca = "", origem = "", lado = "frente";
 
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
 const ehSafra = (s) => /^\d{4}$/.test(String(s || "").trim());
-const safraCurta = (w) => ehSafra(w.safra) ? w.safra : (w.safra && !String(w.safra).startsWith("[") ? "NV" : "—");
-const lugar = (w) => {
-  const r = String(w.regiao || "").split(/[,(·]/)[0].trim();
-  return r || String(w.pais || "").split(",")[0].trim();
-};
+const safraCurta = (w) => ehSafra(w.safra) ? w.safra : (w.safra && !String(w.safra).startsWith("[") ? "NV" : "s/ safra");
 const paisBase = (w) => { const p = String(w.pais || ""); return p.includes(",") ? p.split(",").pop().trim() : p.trim(); };
+const qtd = (w) => Number(w.quantidade) || 0;
+const plural = (n) => n + (n === 1 ? " garrafa" : " garrafas");
+
+function status(w) {
+  const de = Number(w.guarda_de), ate = Number(w.guarda_ate);
+  if (!de || !ate) return null;
+  if (ANO < de) return { k:"cedo", txt:"ainda cedo · a partir de " + de, cor:"var(--muted)" };
+  if (ANO > ate) return { k:"passou", txt:"passou da janela (" + ate + ")", cor:"var(--terra)" };
+  if (ate - ANO <= 1) return { k:"logo", txt:"beber logo · até " + ate, cor:"var(--terra)" };
+  return { k:"ponto", txt:"no ponto · até " + ate, cor:"var(--olive)" };
+}
 
 async function carregar() {
   try {
-    const r = await fetch(DATA_URL + "?t=" + Date.now(), { cache: "no-store" });
+    const r = await fetch(DATA_URL + "?t=" + Date.now(), { cache:"no-store" });
     if (!r.ok) throw new Error(r.status);
     D = await r.json(); origem = "online";
     try { localStorage.setItem(CACHE_KEY, JSON.stringify(D)); } catch (e) {}
   } catch (e) {
     try { D = JSON.parse(localStorage.getItem(CACHE_KEY)); origem = "cache"; } catch (e2) {}
   }
-  if (!D) { document.getElementById("app").innerHTML = '<p class="empty">Não foi possível abrir a carta. Verifique a conexão.</p>'; return; }
+  if (!D) { document.getElementById("app").innerHTML = '<p class="empty" style="margin-top:80px">Não foi possível abrir a adega. Verifique a conexão.</p>'; return; }
   rota();
 }
 
 function rota() {
   const id = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
   const w = id && D.vinhos.find((v) => v.id === id);
-  w ? ficha(w) : carta();
+  if (w) { lado = "frente"; ficha(w); } else adega();
   window.scrollTo(0, 0);
 }
 
-function carta() {
-  const vs = D.vinhos;
-  const ativos = vs.filter((w) => Number(w.quantidade) > 0);
-  const garrafas = ativos.reduce((a, w) => a + Number(w.quantidade), 0);
-  const paises = new Set(ativos.map(paisBase).filter(Boolean)).size;
-  const q = busca.trim().toLowerCase();
-  const passa = (w) => (filtro === "todos" || w.tipo === filtro) &&
-    (!q || [w.nome, w.produtor, w.uva, w.regiao, w.pais, w.composicao, w.harmonizacao].some((f) => String(f || "").toLowerCase().includes(q)));
-
-  let html = `<div class="mast"><div class="sc">Reserva particular</div><h1>Adega Marques Silva</h1></div>
-    <hr class="rule"><div class="summary">${garrafas} garrafas · ${ativos.length} rótulos · ${paises} países</div><hr class="rule">
-    <div class="filters">${[["todos","Todos"], ...SECOES.filter(([t]) => vs.some((w) => w.tipo === t))].map(([t,l]) => `<button data-f="${t}" class="${filtro===t?"on":""}">${l}</button>`).join("")}</div>
-    <input class="search" id="busca" placeholder="buscar vinho, uva ou prato" value="${esc(busca)}" />`;
-
-  let algum = false;
-  SECOES.forEach(([t, l]) => {
-    const lista = ativos.filter((w) => w.tipo === t && passa(w));
-    if (!lista.length) return;
-    algum = true;
-    html += `<div class="sec">${l}</div><div class="orn">· · ·</div>` + lista.map((w) => linha(w, false)).join("");
-  });
-  const fora = vs.filter((w) => Number(w.quantidade) <= 0 && passa(w));
-  if (fora.length) { algum = true; html += `<div class="sec">Já degustados</div><div class="orn">· · ·</div>` + fora.map((w) => linha(w, true)).join(""); }
-  if (!algum) html += `<p class="empty">Nenhum vinho encontrado.</p>`;
-
-  html += `<div class="foot">${origem === "cache" ? "Sem conexão — mostrando a última versão salva.<br>" : ""}Carta atualizada em ${fmtData(D.atualizado)}.<br>Alterações: é só pedir ao Claude no chat.</div>`;
-  const app = document.getElementById("app");
-  app.innerHTML = html;
-  app.querySelectorAll("[data-f]").forEach((b) => b.onclick = () => { filtro = b.dataset.f; carta(); });
-  app.querySelectorAll("[data-id]").forEach((r) => r.onclick = () => { location.hash = "/" + encodeURIComponent(r.dataset.id); });
-  const inp = document.getElementById("busca");
-  inp.oninput = (e) => { busca = e.target.value; const pos = e.target.selectionStart; carta(); const n = document.getElementById("busca"); n.focus(); n.setSelectionRange(pos, pos); };
+function rotuloTipo(w, cls) {
+  return `<div class="lab t-${esc(w.tipo)} ${cls || ""}"><div class="lp">${esc(w.produtor)}</div><div class="ln">${esc(w.nome)}</div><div class="ly">${esc(safraCurta(w))}</div><div class="rule"></div></div>`;
 }
 
-function linha(w, gone) {
-  return `<div class="row ${gone ? "gone" : ""}" data-id="${esc(w.id)}">
-    <div><div class="nm">${esc(w.nome)}</div><div class="pr">${esc([w.produtor, lugar(w)].filter(Boolean).join(" · "))}</div></div>
-    <div class="rt"><div class="yr">${esc(safraCurta(w))}</div><div class="q">${gone ? "esgotado" : esc(w.quantidade) + (Number(w.quantidade) === 1 ? " garrafa" : " garrafas")}</div></div></div>`;
+function adega() {
+  const ativos = D.vinhos.filter((w) => qtd(w) > 0);
+  const total = ativos.reduce((a, w) => a + qtd(w), 0);
+  const porTipo = TIPOS.map(([t, l, c]) => [t, l, c, ativos.filter((w) => w.tipo === t).reduce((a, w) => a + qtd(w), 0)]).filter((x) => x[3] > 0);
+  const q = busca.trim().toLowerCase();
+  const passa = (w) => (filtro === "todos" || w.tipo === filtro) &&
+    (!q || [w.nome, w.produtor, w.uva, w.composicao, w.regiao, w.pais, w.harmonizacao, w.posicao].some((f) => String(f || "").toLowerCase().includes(q)));
+
+  const prontos = ativos.filter((w) => passa(w)).map((w) => [w, status(w)]).filter(([, s]) => s && (s.k === "ponto" || s.k === "logo" || s.k === "passou"))
+    .sort((a, b) => Number(a[0].guarda_ate) - Number(b[0].guarda_ate));
+  const semJanela = ativos.filter((w) => !status(w)).length;
+  const lista = ativos.filter(passa);
+  const fora = D.vinhos.filter((w) => qtd(w) <= 0 && passa(w));
+
+  let html = `<div class="hd"><div class="hd-in">
+    <div class="top"><div><div class="sc">Reserva particular</div><div class="d title">Adega Marques Silva</div></div>
+      <div><div class="d total">${total}</div><div class="sc" style="text-align:right">garrafas</div></div></div>
+    <div class="bar">${porTipo.map(([, , c, n]) => `<div style="width:${(n / total * 100).toFixed(1)}%;background:${c}"></div>`).join("")}</div>
+    <div class="filters"><button class="pill ${filtro === "todos" ? "on" : ""}" data-f="todos">Todos<span class="n">${total}</span></button>
+      ${porTipo.map(([t, l, , n]) => `<button class="pill ${filtro === t ? "on" : ""}" data-f="${t}">${l}<span class="n">${n}</span></button>`).join("")}</div>
+  </div></div><div class="bd">`;
+
+  html += `<div class="h">Pronto para beber</div>`;
+  html += prontos.length
+    ? `<div class="ready">${prontos.slice(0, 6).map(([w, s]) => `<div class="rd ${s.k !== "ponto" ? "urg" : ""}" data-id="${esc(w.id)}"><div class="nm">${esc(w.nome)}</div><div class="st">${esc(safraCurta(w))} · ${esc(s.txt)}</div></div>`).join("")}</div>`
+    : `<p class="note">Nenhum vinho com janela de guarda definida neste filtro.</p>`;
+  if (semJanela) html += `<p class="note">${semJanela} rótulos ainda sem janela de guarda — pesquisa em andamento.</p>`;
+
+  html += `<div class="hrow"><div class="h">Prateleira</div><input class="search" id="busca" placeholder="buscar…" value="${esc(busca)}" /></div>`;
+  html += lista.length ? `<div class="grid">${lista.map((w) => card(w, false)).join("")}</div>` : `<p class="empty">Nenhum vinho encontrado.</p>`;
+  if (fora.length) html += `<div class="h">Já degustados</div><div class="grid">${fora.map((w) => card(w, true)).join("")}</div>`;
+
+  html += `<div class="foot">${origem === "cache" ? "Sem conexão — mostrando a última versão salva.<br>" : ""}Atualizada em ${fmtData(D.atualizado)} · alterações pelo chat com o Claude.</div></div>`;
+  const app = document.getElementById("app");
+  app.innerHTML = html;
+  app.querySelectorAll("[data-f]").forEach((b) => b.onclick = () => { filtro = b.dataset.f; adega(); });
+  app.querySelectorAll("[data-id]").forEach((el) => el.onclick = () => { location.hash = "/" + encodeURIComponent(el.dataset.id); });
+  const inp = document.getElementById("busca");
+  inp.oninput = (e) => { busca = e.target.value; const p = e.target.selectionStart; const y = window.scrollY; adega(); const n = document.getElementById("busca"); n.focus({ preventScroll:true }); n.setSelectionRange(p, p); window.scrollTo(0, y); };
+}
+
+function card(w, gone) {
+  const s = status(w);
+  const img = w.foto_frente ? `<div class="lab t-${esc(w.tipo)}"><img src="${esc(w.foto_frente)}" alt="" loading="lazy" /></div>` : rotuloTipo(w);
+  return `<div class="card ${gone ? "gone" : ""}" data-id="${esc(w.id)}" style="position:relative">
+    ${s && !gone ? `<span class="dotst" style="background:${s.cor}" title="${esc(s.txt)}"></span>` : ""}
+    ${img}
+    <div class="cap"><div class="nm">${esc(w.nome)}</div><div class="mt">${esc(w.produtor)} · ${esc(safraCurta(w))}</div>
+    <div class="row"><span>${esc(w.posicao || "—")}</span><span class="q">${gone ? "esgotado" : plural(qtd(w))}</span></div></div></div>`;
 }
 
 function campo(lb, v) { return v ? `<div class="lb">${lb}</div><p class="tx">${esc(v)}</p>` : ""; }
 
+function janela(w) {
+  const de = Number(w.guarda_de), ate = Number(w.guarda_ate);
+  if (!de || !ate) return w.guarda ? campo("Guarda", w.guarda) : "";
+  const ini = Math.min(ehSafra(w.safra) ? Number(w.safra) : de - 2, de - 1), fim = Math.max(ate + 2, ANO + 1);
+  const pos = (y) => ((y - ini) / (fim - ini) * 100).toFixed(1) + "%";
+  const fimLogo = Math.max(de, ate - 1);
+  const s = status(w);
+  return `<div class="gw"><div class="lb" style="margin:0">Janela de guarda</div>
+    <div class="gbar"><div class="gfill" style="left:${pos(de)};width:calc(${pos(fimLogo)} - ${pos(de)})"></div><div class="gend" style="left:${pos(fimLogo)};width:calc(${pos(ate)} - ${pos(fimLogo)})"></div><div class="gnow" style="left:${pos(ANO)}"></div></div>
+    <div class="glab"><span>${de}</span><span style="color:${s.cor};font-style:italic">${esc(s.txt.split(" · ")[0])} · hoje</span><span>${ate}</span></div>
+    ${w.guarda_fonte ? `<div class="src" style="margin-top:4px">${esc(w.guarda_fonte)}</div>` : ""}</div>`;
+}
+
 function ficha(w) {
   const hs = String(w.harmonizacao || "").split(/;\s*/).filter(Boolean);
   const hist = (D.historico || []).filter((h) => h.id === w.id).sort((a, b) => String(b.data).localeCompare(String(a.data)));
-  const sub = [ehSafra(w.safra) ? "Safra " + w.safra : w.safra, w.tipo && (SECOES.find(([t]) => t === w.tipo) || [, ""])[1].replace(/s$/, "")].filter(Boolean).join(" · ");
-  let html = `<button class="back" onclick="location.hash=''">‹ Carta</button>
-    <div class="f-prod sc">${esc([w.produtor, paisBase(w)].filter(Boolean).join(" · "))}</div>
-    <div class="f-name">${esc(w.nome)}</div>
-    <div class="f-sub">${esc(sub)}</div>
-    <div class="orn" style="margin:14px 0 0">· · ·</div>
-    ${campo("Uvas", w.composicao || w.uva)}
-    ${campo("Origem", [w.regiao, w.pais].filter(Boolean).join(" · "))}
-    ${campo("Amadurecimento", w.amadurecimento)}
-    ${(w.abv || w.guarda) ? `<div class="grid2"><div>${campo("Teor alcoólico", w.abv)}</div><div>${campo("Guarda", w.guarda)}</div></div>` : ""}
-    ${hs.length ? `<div class="pair"><div class="lb">Vai bem com</div><ul>${hs.map((h) => `<li>${esc(h)}</li>`).join("")}</ul></div>` : ""}
-    ${campo("Nota de degustação", w.nota)}
-    ${hist.length ? `<div class="lb">Garrafas abertas</div><ul class="hist" style="margin:2px 0 0;padding-left:18px">${hist.map((h) => `<li>${fmtData(h.data)}${h.nota ? " — <i>" + esc(h.nota) + "</i>" : ""}</li>`).join("")}</ul>` : ""}
-    ${(w.valor || w.local) ? `<div class="grid2"><div>${campo("Valor pago", w.valor ? "R$ " + w.valor : "")}</div><div>${campo("Onde comprou", w.local)}</div></div>` : ""}
-    <div class="stock"><span>${w.certeza ? `<span class="badge b-${esc(w.certeza)}">${CERT[w.certeza] || ""}</span>` : ""}</span>
-      <span><span class="n">${esc(w.quantidade)}</span> <span class="sc">${Number(w.quantidade) === 1 ? "garrafa" : "garrafas"}</span></span></div>
-    ${w.fontes ? `<div class="src">Fontes: ${esc(w.fontes)}</div>` : ""}
-    ${hs.length ? `<div class="src">Harmonizações: sugestão do Claude.</div>` : ""}`;
-  document.getElementById("app").innerHTML = html;
+  const foto = lado === "verso" ? w.foto_verso : w.foto_frente;
+  const tipoNome = ((TIPOS.find(([t]) => t === w.tipo) || [, ""])[1] || "").replace(/s$/, "");
+  const html = `<div class="hero ${foto ? "" : "sem"}">
+      <button class="back" id="voltar">‹ Adega</button>
+      ${foto ? `<img src="${esc(foto)}" alt="Rótulo ${esc(w.nome)}" />` : rotuloTipo(w)}
+      ${w.foto_frente && w.foto_verso ? `<button class="flip" id="virar">${lado === "frente" ? "ver contrarrótulo" : "ver rótulo"}</button>` : ""}
+    </div>
+    <div class="fb">
+      <div class="f-prod sc">${esc([w.produtor, paisBase(w)].filter(Boolean).join(" · "))}</div>
+      <div class="f-name">${esc(w.nome)}</div>
+      <div class="f-sub">${esc([safraCurta(w), tipoNome, w.posicao, plural(qtd(w))].filter(Boolean).join(" · "))}</div>
+      ${janela(w)}
+      ${hs.length ? `<div class="pair"><div class="lb">Vai bem com</div><ul>${hs.map((h) => `<li>${esc(h.charAt(0).toUpperCase() + h.slice(1))}</li>`).join("")}</ul></div>` : ""}
+      ${campo("Uvas", w.composicao || w.uva)}
+      ${campo("Origem", [w.regiao, w.pais].filter(Boolean).join(" · "))}
+      <div class="g2"><div>${campo("Amadurecimento", w.amadurecimento)}</div><div>${campo("Teor alcoólico", w.abv)}</div></div>
+      ${!ehSafra(w.safra) && w.safra ? campo("Safra", w.safra) : ""}
+      ${campo("Nota de degustação", w.nota)}
+      ${hist.length ? `<div class="lb">Garrafas abertas</div><ul class="hist">${hist.map((h) => `<li>${fmtData(h.data)}${h.nota ? " — <i>" + esc(h.nota) + "</i>" : ""}</li>`).join("")}</ul>` : ""}
+      ${(w.valor || w.local) ? `<div class="g2"><div>${campo("Valor pago", w.valor ? "R$ " + w.valor : "")}</div><div>${campo("Onde comprou", w.local)}</div></div>` : ""}
+      ${w.certeza ? `<div style="margin-top:20px"><span class="badge b-${esc(w.certeza)}">${CERT[w.certeza] || ""}</span></div>` : ""}
+      ${w.fontes ? `<div class="src">Fontes: ${esc(w.fontes)}</div>` : ""}
+      ${hs.length ? `<div class="src">Harmonizações: sugestão do Claude.</div>` : ""}
+    </div>`;
+  const app = document.getElementById("app");
+  app.innerHTML = html;
+  document.getElementById("voltar").onclick = () => { if (history.length > 1) history.back(); else location.hash = ""; };
+  const v = document.getElementById("virar");
+  if (v) v.onclick = () => { lado = lado === "frente" ? "verso" : "frente"; ficha(w); };
 }
 
-function fmtData(s) {
-  const m = String(s || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
-  return m ? `${m[3]}/${m[2]}/${m[1]}` : esc(s || "");
-}
+function fmtData(s) { const m = String(s || "").match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}/${m[2]}/${m[1]}` : esc(s || ""); }
 
 window.addEventListener("hashchange", rota);
-document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") carregar(); });
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && D) carregar(); });
 carregar();
 </script>
 </body>
