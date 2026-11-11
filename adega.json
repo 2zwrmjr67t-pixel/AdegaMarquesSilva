@@ -27,7 +27,7 @@
    "guarda_ate": 2030,
    "guarda_fonte": "[Inferência] Chardonnay de altitude com barrica nova",
    "locais": {
-    "Cava": 1
+    "Adega inferior": 1
    },
    "harmonizacao_fonte": "",
    "nivel": "mesa"
@@ -256,7 +256,7 @@
    "regiao": "La Pirámide (Agrelo) + Altamira (Uco)",
    "pais": "Mendoza, Argentina",
    "tipo": "tinto",
-   "quantidade": 1,
+   "quantidade": 0,
    "valor": "",
    "local": "",
    "harmonizacao": "Carré de cordeiro; molleja na parrilla; risoto de funghi",
@@ -437,7 +437,7 @@
    "regiao": "Perdriel, Luján de Cuyo, Mendoza",
    "pais": "Mendoza, Argentina",
    "tipo": "tinto",
-   "quantidade": 2,
+   "quantidade": 1,
    "valor": "",
    "local": "",
    "harmonizacao": "Hambúrguer de parrilla; choripán; pizza na lenha",
@@ -529,7 +529,7 @@
    "regiao": "Agrelo + Lunlunta, Mendoza",
    "pais": "Mendoza, Argentina",
    "tipo": "tinto",
-   "quantidade": 8,
+   "quantidade": 7,
    "valor": "",
    "local": "",
    "harmonizacao": "Picanha e maminha na brasa; costela; queijos curados",
@@ -584,10 +584,10 @@
   },
   {
    "id": "cordero-con-piel-de-lobo-mosquita-muerta-2024",
-   "nome": "Cordero con Piel de Lobo",
+   "nome": "Cordero con Piel de Lobo Tinto de Tintas",
    "produtor": "Mosquita Muerta",
    "safra": "2024",
-   "uva": "Malbec",
+   "uva": "Bonarda, Malbec, Syrah",
    "regiao": "Luján de Cuyo (Perdriel, Agrelo, Barrancas)",
    "pais": "Mendoza, Argentina",
    "tipo": "tinto",
@@ -596,13 +596,13 @@
    "local": "",
    "harmonizacao": "Choripán e linguiça; empanadas; massas ao sugo — vinho de dia a dia",
    "nota": "",
-   "abv": "~13,5%",
-   "composicao": "100% Malbec",
-   "amadurecimento": "~6 meses em carvalho usado",
-   "fontes": "[Inferência] Safras 2020–2023 (Wine Folly; montevideo.com.br). Importador norueguês cita Valle de Uco p/ 2024",
-   "certeza": "inferencia",
-   "foto_frente": "",
-   "foto_verso": "",
+   "abv": "12,8%",
+   "composicao": "60% Bonarda, 25% Malbec, 15% Syrah",
+   "amadurecimento": "",
+   "fontes": "[Verificado — rótulo e contrarrótulo] Tinto de Tintas 2024, 60% Bonarda / 25% Malbec / 15% Syrah, 12,8%, Millán S.A. (Perdriel). Não é o Malbec varietal, como estava cadastrado",
+   "certeza": "verificado",
+   "foto_frente": "fotos/cordero-con-piel-de-lobo-mosquita-muerta-2024-frente.jpg",
+   "foto_verso": "fotos/cordero-con-piel-de-lobo-mosquita-muerta-2024-verso.jpg",
    "guarda_de": 2025,
    "guarda_ate": 2028,
    "guarda_fonte": "[Inferência] Malbec jovem de linha de entrada",
@@ -615,10 +615,10 @@
   {
    "id": "la-jovem-brut-la",
    "nome": "LA Jovem Brut",
-   "produtor": "LA",
+   "produtor": "Luiz Argenta",
    "safra": "",
    "uva": "",
-   "regiao": "Serra do Sudeste, RS",
+   "regiao": "Altos Montes, Flores da Cunha, RS",
    "pais": "Brasil",
    "tipo": "espumante",
    "quantidade": 1,
@@ -627,10 +627,10 @@
    "harmonizacao": "Aperitivo; frituras (pastel, bolinho de bacalhau); sushi",
    "nota": "Método Clássico · Vinho Espumante Natural Branco Brut · 12,5% vol",
    "abv": "12,5%",
-   "fontes": "[Verificado — rótulo] ABV · [Inferência] LA = Luiz Argenta (zoom.com.br; viniou.com)",
-   "certeza": "inferencia",
-   "foto_frente": "",
-   "foto_verso": "",
+   "fontes": "[Verificado — rótulo e contrarrótulo] Luiz Argenta Vinhos Finos, Flores da Cunha (Altos Montes), Brut método clássico, 12 meses de maturação, 12,5%. Corrige a região anterior (Serra do Sudeste), que era inferência errada",
+   "certeza": "verificado",
+   "foto_frente": "fotos/la-jovem-brut-la-frente.jpg",
+   "foto_verso": "fotos/la-jovem-brut-la-verso.jpg",
    "guarda_de": 2025,
    "guarda_ate": 2027,
    "guarda_fonte": "[Inferência] espumante jovem, para beber em até 2 anos",
@@ -638,7 +638,8 @@
     "Geladeira": 1
    },
    "harmonizacao_fonte": "",
-   "nivel": "descompromissado"
+   "nivel": "descompromissado",
+   "amadurecimento": "Método clássico · 12 meses de maturação"
   },
   {
    "nome": "Alvarinho Barricado",
@@ -725,7 +726,7 @@
    "guarda_ate": 2028,
    "guarda_fonte": "[Inferência] Chardonnay Gran Reserva brasileiro de barrica",
    "locais": {
-    "Cava": 1
+    "Adega inferior": 1
    },
    "harmonizacao_fonte": "produtor (contrarrótulo)",
    "nivel": "mesa"
@@ -852,7 +853,23 @@
    "nivel": "mesa"
   }
  ],
- "historico": [],
+ "historico": [
+  {
+   "id": "angelica-zapata-cabernet-franc-alta-catena-zapata-2022",
+   "data": "2026-11-11",
+   "nota": "baixa no inventário (consumida antes, sem registro)"
+  },
+  {
+   "id": "d-v-catena-cabernet-malbec-catena-zapata-2025",
+   "data": "2026-11-11",
+   "nota": "baixa no inventário (consumida antes, sem registro)"
+  },
+  {
+   "id": "perro-callejero-blend-de-malbec-mosquita-muerta-2024",
+   "data": "2026-11-11",
+   "nota": "baixa no inventário (consumida antes, sem registro)"
+  }
+ ],
  "locais_capacidade": {
   "Adega superior": 8,
   "Adega inferior": 16
