@@ -5,10 +5,10 @@
   {
    "id": "maria-magdalena-la-legitima-by-judas-2024",
    "nome": "María Magdalena",
-   "produtor": "La Legítima by Judas",
+   "produtor": "Sottano (La Legítima)",
    "safra": "2024",
    "uva": "Chardonnay",
-   "regiao": "Gualtallary",
+   "regiao": "Valle de Uco, Mendoza (vinhedo acima de 1.000 m, solo de pedra e areia)",
    "pais": "Argentina",
    "tipo": "branco",
    "quantidade": 1,
@@ -18,15 +18,17 @@
    "nota": "",
    "abv": "~14%",
    "composicao": "100% Chardonnay (Gualtallary, ~1.400 m)",
-   "amadurecimento": "8 meses em barricas/fudres novos de carvalho francês, sem malolática",
-   "fontes": "[Verificado — boutiquedevinos.com.ar; segundacopa.com.ar] Bodega Sottano. [Inferência] ABV/amadurecimento de safras anteriores",
-   "certeza": "inferencia",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
+   "amadurecimento": "Fermentado em barricas novas de carvalho francês de 500 litros",
+   "fontes": "[Verificado — rótulo e contrarrótulo] Chardonnay 2024, Valle de Uco >1.000 m, barricas novas francesas de 500 L, elaborado pela Sottano. ABV ilegível na foto (≈14%, [Inferência])",
+   "certeza": "verificado",
+   "foto_frente": "fotos/maria-magdalena-la-legitima-by-judas-2024-frente.jpg",
+   "foto_verso": "fotos/maria-magdalena-la-legitima-by-judas-2024-verso.jpg",
+   "guarda_de": 2025,
+   "guarda_ate": 2030,
+   "guarda_fonte": "[Inferência] Chardonnay de altitude com barrica nova",
+   "locais": {
+    "Cava": 1
+   },
    "harmonizacao_fonte": "",
    "nivel": "mesa"
   },
@@ -154,10 +156,10 @@
    "nivel": "mesa"
   },
   {
-   "id": "extra-brut-metodo-tradicional-valmarino-churchill-nv",
+   "id": "extra-brut-metodo-tradicional-valmarino-churchill-2023",
    "nome": "Extra Brut Método Tradicional",
    "produtor": "Valmarino & Churchill",
-   "safra": "[Não verificado]",
+   "safra": "2023",
    "uva": "Chardonnay, Pinot Noir",
    "regiao": "Pinto Bandeira, RS",
    "pais": "Brasil",
@@ -166,19 +168,21 @@
    "valor": "",
    "local": "",
    "harmonizacao": "Ostras e frutos do mar; camarão na chapa; aperitivo com pintxos e patês",
-   "nota": "",
+   "nota": "Garrafa nº 2507 de 6.728 · envase 05/03/2024 · dégorgement 10/09/2025",
    "abv": "12%",
-   "composicao": "70% Chardonnay, 30% Pinot Noir · 4 g/l de açúcar",
-   "amadurecimento": "Vinho-base 12 meses em barricas de carvalho + 18–24 meses de autólise",
+   "composicao": "70% Chardonnay, 30% Pinot Noir (vinhedos próprios, Pinto Bandeira)",
+   "amadurecimento": "Vinho-base 12 meses em barricas de carvalho americano · método tradicional · dégorgement 10/09/2025",
    "guarda": "6–8 anos",
-   "fontes": "[Verificado — valmarino.com.br (safra 2023); vinhosevinhos.com] Safra da sua garrafa não identificada: conferir rótulo (2020/2022/2023 existem)",
+   "fontes": "[Verificado — rótulo e contrarrótulo] safra 2023, 70/30, base 12 meses em carvalho americano, 12%, datas de envase e dégorgement",
    "certeza": "verificado",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
+   "foto_frente": "fotos/extra-brut-metodo-tradicional-valmarino-churchill-2023-frente.jpg",
+   "foto_verso": "fotos/extra-brut-metodo-tradicional-valmarino-churchill-2023-verso.jpg",
+   "guarda_de": 2025,
+   "guarda_ate": 2030,
+   "guarda_fonte": "[Inferência] espumante de método tradicional com base em barrica; melhor nos primeiros anos após o dégorgement",
+   "locais": {
+    "Cava": 1
+   },
    "harmonizacao_fonte": "",
    "nivel": "mesa"
   },
@@ -296,7 +300,8 @@
    "guarda_ate": 2032,
    "guarda_fonte": "[Verificado — Wine Advocate, Luis Gutiérrez, 96 pts] beber 2024–2032. Wine Spectator indica até 2033",
    "locais": {
-    "Adega superior": 2
+    "Adega superior": 1,
+    "Cava": 1
    },
    "harmonizacao_fonte": "",
    "nivel": "topo"
@@ -356,7 +361,8 @@
    "guarda_ate": 2034,
    "guarda_fonte": "[Inferência] base nas janelas da safra 2017 (Vinous: 2021–2037; Wine Advocate: 2021–2030). A 2018 tem 98 pts Wine Advocate, descrita como austera e muito equilibrada",
    "locais": {
-    "Adega superior": 2
+    "Adega superior": 1,
+    "Cava": 1
    },
    "harmonizacao_fonte": "",
    "nivel": "topo"
@@ -400,7 +406,7 @@
    "regiao": "La Pirámide (Agrelo) + Altamira (Uco)",
    "pais": "Mendoza, Argentina",
    "tipo": "tinto",
-   "quantidade": 2,
+   "quantidade": 3,
    "valor": "",
    "local": "",
    "harmonizacao": "Carré de cordeiro; molleja na parrilla; risoto de funghi",
@@ -415,7 +421,8 @@
    "guarda_ate": 2035,
    "guarda_fonte": "[Verificado — Catena Zapata] 'para beber agora e nos próximos 15 anos'",
    "locais": {
-    "Adega inferior": 1
+    "Adega inferior": 1,
+    "Cava": 2
    },
    "harmonizacao_fonte": "",
    "amadurecimento": "18 meses em carvalho francês · sem clarificar nem filtrar",
@@ -445,7 +452,9 @@
    "guarda_de": 2025,
    "guarda_ate": 2028,
    "guarda_fonte": "[Inferência] tinto jovem de linha média",
-   "locais": {},
+   "locais": {
+    "Adega inferior": 1
+   },
    "harmonizacao_fonte": "",
    "nivel": "descompromissado"
   },
@@ -473,7 +482,8 @@
    "guarda_ate": 2029,
    "guarda_fonte": "[Inferência] tinto jovem de linha média; janela de ~4–5 anos",
    "locais": {
-    "Adega inferior": 3
+    "Adega inferior": 3,
+    "Cava": 2
    },
    "harmonizacao_fonte": "",
    "abv": "13,4%",
@@ -504,7 +514,8 @@
    "guarda_ate": 2029,
    "guarda_fonte": "[Inferência] Malbec jovem de linha de entrada",
    "locais": {
-    "Geladeira": 1
+    "Geladeira": 1,
+    "Cava": 2
    },
    "harmonizacao_fonte": "",
    "nivel": "descompromissado"
@@ -533,7 +544,8 @@
    "guarda_fonte": "[Inferência] linha D.V. Catena costuma pedir 2–3 anos de garrafa e guarda de ~10 anos; safra 2025 muito jovem",
    "locais": {
     "Adega inferior": 4,
-    "Geladeira": 1
+    "Geladeira": 1,
+    "Cava": 2
    },
    "harmonizacao_fonte": "",
    "abv": "13,2%",
@@ -619,9 +631,9 @@
    "certeza": "inferencia",
    "foto_frente": "",
    "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
+   "guarda_de": 2025,
+   "guarda_ate": 2027,
+   "guarda_fonte": "[Inferência] espumante jovem, para beber em até 2 anos",
    "locais": {
     "Geladeira": 1
    },
@@ -639,20 +651,22 @@
    "quantidade": 1,
    "valor": "",
    "local": "",
-   "harmonizacao": "Bacalhau à lagareiro; polvo grelhado; peixe na manteiga",
-   "nota": "12 meses de maturação · Edição limitada 2.600 garrafas · Vinho fino branco seco · 13% vol",
+   "harmonizacao": "Lagosta e camarões grelhados; atum grelhado; bacalhau; queijos curados; frango grelhado e peru assado; molhos cremosos",
+   "nota": "Edição limitada de 2.600 garrafas · serviço 10–13 °C · assinado por Adolar Hermann",
    "id": "alvarinho-barricado-hermann-2024",
    "abv": "13%",
-   "amadurecimento": "12 meses",
-   "fontes": "[Verificado — rótulo] ABV/amadurecimento · [Verificado — istoedinheiro.com.br] Vinícola Hermann na Serra do Sudeste",
+   "amadurecimento": "12 meses de maturação em madeira",
+   "fontes": "[Verificado — rótulo e contrarrótulo] 2024, 13%, 12 meses, 2.600 garrafas, Serra do Sudeste",
    "certeza": "verificado",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
-   "harmonizacao_fonte": "",
+   "foto_frente": "fotos/alvarinho-barricado-hermann-2024-frente.jpg",
+   "foto_verso": "fotos/alvarinho-barricado-hermann-2024-verso.jpg",
+   "guarda_de": 2025,
+   "guarda_ate": 2029,
+   "guarda_fonte": "[Inferência] branco barricado de Alvarinho",
+   "locais": {
+    "Cava": 1
+   },
+   "harmonizacao_fonte": "produtor (contrarrótulo)",
    "nivel": "mesa"
   },
   {
@@ -696,22 +710,24 @@
    "quantidade": 1,
    "valor": "",
    "local": "",
-   "harmonizacao": "Frango grelhado; peixes com molho suave; queijos leves e saladas",
-   "nota": "Vinho fino branco seco · 13% vol",
+   "harmonizacao": "Carnes brancas; frutos do mar; massas leves; queijos leves; risotos",
+   "nota": "Serviço 8–10 °C · lote 02/22",
    "id": "chardonnay-gran-reserva-rarita-do-vale-2022",
    "abv": "13%",
    "composicao": "100% Chardonnay",
-   "amadurecimento": "6–8 meses em barricas de carvalho + aduelas de carvalho francês em tanque inox",
+   "amadurecimento": "12 meses em barricas de carvalho francês",
    "guarda": "",
-   "fontes": "[Verificado — rótulo] ABV 13%. [Inferência] amadurecimento da ficha oficial do Chardonnay safra 2021 (11,5%, 1.400 garrafas, colheita manual): safra e teor diferem da sua garrafa 2022",
-   "certeza": "inferencia",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
-   "harmonizacao_fonte": "",
+   "fontes": "[Verificado — rótulo e contrarrótulo] Gran Reserva 2022, 13%, 12 meses em carvalho francês (corrige a estimativa anterior de 6–8 meses, que vinha da ficha da safra 2021)",
+   "certeza": "verificado",
+   "foto_frente": "fotos/chardonnay-gran-reserva-rarita-do-vale-2022-frente.jpg",
+   "foto_verso": "fotos/chardonnay-gran-reserva-rarita-do-vale-2022-verso.jpg",
+   "guarda_de": 2024,
+   "guarda_ate": 2028,
+   "guarda_fonte": "[Inferência] Chardonnay Gran Reserva brasileiro de barrica",
+   "locais": {
+    "Cava": 1
+   },
+   "harmonizacao_fonte": "produtor (contrarrótulo)",
    "nivel": "mesa"
   },
   {
@@ -725,21 +741,23 @@
    "quantidade": 1,
    "valor": "",
    "local": "",
-   "harmonizacao": "Bacalhau; atum à plancha; risoto cremoso; culinária asiática",
-   "nota": "Vinhos de Alta Gama · Vinho fino branco seco · 13% vol",
+   "harmonizacao": "Peixes e frutos do mar; cozinha asiática; bacalhau; risotos; carnes assadas",
+   "nota": "Produção limitada de 714 garrafas · nº 0458 · serviço 8–12 °C · lote 01/23",
    "id": "bakar-chardonnay-bodega-iribarrem-2022",
-   "abv": "12,9%",
+   "abv": "13%",
    "composicao": "100% Chardonnay",
-   "amadurecimento": "Fermentação em barricas de carvalho francês Marsannay + 12 meses sur lie",
-   "fontes": "[Verificado — bodegairibarrem.com.br/vinhos/bakar] ABV 12,9% no site (rótulo arredonda para 13%). Guarda não informada pela vinícola",
+   "amadurecimento": "Fermentação integral do mosto nas barricas de carvalho + 12 meses sur lie",
+   "fontes": "[Verificado — rótulo e contrarrótulo] 13%, fermentação em barrica + 12 meses sur lie, 714 garrafas. [Verificado — bodegairibarrem.com.br] carvalho francês Marsannay (site cita 12,9%)",
    "certeza": "verificado",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
-   "harmonizacao_fonte": "",
+   "foto_frente": "fotos/bakar-chardonnay-bodega-iribarrem-2022-frente.jpg",
+   "foto_verso": "fotos/bakar-chardonnay-bodega-iribarrem-2022-verso.jpg",
+   "guarda_de": 2024,
+   "guarda_ate": 2029,
+   "guarda_fonte": "[Inferência] Chardonnay de barrica com sur lie",
+   "locais": {
+    "Cava": 1
+   },
+   "harmonizacao_fonte": "produtor (contrarrótulo)",
    "nivel": "mesa"
   },
   {
@@ -788,16 +806,19 @@
    "id": "riesling-vom-buntsandstein-wolf-birkweiler-2024",
    "composicao": "100% Riesling · Erste Lage (Birkweiler Kastanienbusch)",
    "amadurecimento": "Sem madeira · maceração 12 h · fermentação espontânea",
-   "fontes": "[Verificado — weingut-wolf-birkweiler.de] Linha existe como 'Kastanienbusch Riesling aus dem Buntsandstein' 2024. [Inferência] vinificação da ficha do 'Rotliegenden'; ABV do Buntsandstein não localizado (Rotliegenden: 13%)",
-   "certeza": "inferencia",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
+   "fontes": "[Verificado — rótulo e contrarrótulo] Riesling vom Buntsandstein, Birkweiler Kastanienbusch, 2024 Trocken, 13,0%, Weingut Klaus & Mathias Wolf. [Inferência] vinificação",
+   "certeza": "verificado",
+   "foto_frente": "fotos/riesling-vom-buntsandstein-wolf-birkweiler-2024-frente.jpg",
+   "foto_verso": "fotos/riesling-vom-buntsandstein-wolf-birkweiler-2024-verso.jpg",
+   "guarda_de": 2025,
+   "guarda_ate": 2032,
+   "guarda_fonte": "[Inferência] Riesling seco de Erste Lage do Pfalz",
+   "locais": {
+    "Cava": 1
+   },
    "harmonizacao_fonte": "",
-   "nivel": "mesa"
+   "nivel": "mesa",
+   "abv": "13%"
   },
   {
    "id": "pulenta-estate-red-blend-v-pulenta-estate-2022",
