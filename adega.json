@@ -52,8 +52,8 @@
    "foto_frente": "fotos/judas-sottano-2022-frente.jpg",
    "foto_verso": "fotos/judas-sottano-2022-verso.jpg",
    "guarda_de": 2025,
-   "guarda_ate": 2037,
-   "guarda_fonte": "[Inferência] potencial de guarda 10–15 anos (cepadevinos.com, winenotstore.com)"
+   "guarda_ate": 2036,
+   "guarda_fonte": "[Inferência] nenhuma crítica publicou janela da safra 2022; fichas de loja indicam guarda de 10–15 anos e o estilo (15,2%, 24 meses em carvalho novo) pede alguns anos de garrafa"
   },
   {
    "id": "chardonnay-reserva-bodega-iribarrem-2023",
@@ -105,9 +105,9 @@
    "posicao": "Adega superior",
    "foto_frente": "fotos/maragato-cuvee-lote-iv-familia-bebber-maragato-nv-frente.jpg",
    "foto_verso": "fotos/maragato-cuvee-lote-iv-familia-bebber-maragato-nv-verso.jpg",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": ""
+   "guarda_de": 2025,
+   "guarda_ate": 2034,
+   "guarda_fonte": "[Inferência] nenhuma crítica com janela publicada; base em fichas de lotes anteriores (guarda de 10–15 anos) e nos 18 meses de madeira"
   },
   {
    "id": "d-v-catena-tinto-historico-catena-zapata-2024",
@@ -131,9 +131,9 @@
    "posicao": "Adega superior",
    "foto_frente": "fotos/d-v-catena-tinto-historico-catena-zapata-2024-frente.jpg",
    "foto_verso": "fotos/d-v-catena-tinto-historico-catena-zapata-2024-verso.jpg",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": ""
+   "guarda_de": 2026,
+   "guarda_ate": 2034,
+   "guarda_fonte": "[Inferência] base nas janelas das safras 2021 (2022–2033) e 2022 (2024–2038) publicadas pela crítica. Atenção: sua garrafa 2024 traz no rótulo Malbec–Petit Verdot de Paraje Altamira, diferente das safras anteriores (com Bonarda)"
   },
   {
    "id": "extra-brut-metodo-tradicional-valmarino-churchill-nv",
@@ -264,8 +264,8 @@
    "foto_frente": "fotos/malbec-argentino-catena-zapata-2021-frente.jpg",
    "foto_verso": "fotos/malbec-argentino-catena-zapata-2021-verso.jpg",
    "guarda_de": 2024,
-   "guarda_ate": 2034,
-   "guarda_fonte": "[Inferência] estimativa a partir da crítica"
+   "guarda_ate": 2032,
+   "guarda_fonte": "[Verificado — Wine Advocate, Luis Gutiérrez, 96 pts] beber 2024–2032. Wine Spectator indica até 2033"
   },
   {
    "id": "sottano-reserva-de-familia-18m-sottano-2024",
@@ -315,9 +315,9 @@
    "posicao": "Adega superior",
    "foto_frente": "fotos/gran-enemigo-gualtallary-single-vineyard-el-enemigo-2018-frente.jpg",
    "foto_verso": "fotos/gran-enemigo-gualtallary-single-vineyard-el-enemigo-2018-verso.jpg",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": ""
+   "guarda_de": 2022,
+   "guarda_ate": 2034,
+   "guarda_fonte": "[Inferência] base nas janelas da safra 2017 (Vinous: 2021–2037; Wine Advocate: 2021–2030). A 2018 tem 98 pts Wine Advocate, descrita como austera e muito equilibrada"
   },
   {
    "id": "el-enemigo-cabernet-franc-el-enemigo-2022",
@@ -711,15 +711,15 @@
    "local": "",
    "nota": "",
    "abv": "14,5%",
-   "composicao": "Corte tinto (variedades não informadas no rótulo)",
+   "composicao": "Malbec e Cabernet Sauvignon (Alto Agrelo)",
    "amadurecimento": "",
-   "fontes": "[Verificado — rótulo] safra, ABV, Agrelo, lote PEBL22AR. [Inferência] uvas da Finca La Zulema (Agrelo, ~980 m), vinhedo da Pulenta (theartisanfoodcompany.com). Composição do blend não localizada",
+   "fontes": "[Verificado — rótulo] safra, ABV 14,5%, Agrelo, lote PEBL22AR. [Inferência] o 'V' da Pulenta é o corte Malbec–Cabernet Sauvignon de Alto Agrelo (delectable.com, safra 2010); proporções da 2022 não localizadas",
    "certeza": "inferencia",
    "harmonizacao": "Vazio e bife de chorizo na parrilla; cordeiro assado; queijos curados",
    "guarda": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
+   "guarda_de": 2024,
+   "guarda_ate": 2030,
+   "guarda_fonte": "[Inferência] referência: o Gran Corte VII 2018, topo da casa, tem janela de 10 anos (Decanter: 2022–2032); a linha V é um degrau abaixo",
    "posicao": "Adega superior",
    "foto_frente": "fotos/pulenta-estate-red-blend-v-pulenta-estate-2022-frente.jpg",
    "foto_verso": "fotos/pulenta-estate-red-blend-v-pulenta-estate-2022-verso.jpg"
