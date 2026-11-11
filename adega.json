@@ -27,7 +27,8 @@
    "guarda_ate": null,
    "guarda_fonte": "",
    "locais": {},
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "id": "judas-sottano-2022",
@@ -57,7 +58,8 @@
    "locais": {
     "Adega superior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "topo"
   },
   {
    "id": "chardonnay-reserva-bodega-iribarrem-2023",
@@ -87,7 +89,8 @@
    "locais": {
     "Adega inferior": 1
    },
-   "harmonizacao_fonte": "produtor (contrarrótulo)"
+   "harmonizacao_fonte": "produtor (contrarrótulo)",
+   "nivel": "mesa"
   },
   {
    "id": "maragato-cuvee-lote-iv-familia-bebber-maragato-nv",
@@ -117,7 +120,8 @@
    "locais": {
     "Adega superior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "topo"
   },
   {
    "id": "d-v-catena-tinto-historico-catena-zapata-2024",
@@ -146,7 +150,8 @@
    "locais": {
     "Adega superior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "id": "extra-brut-metodo-tradicional-valmarino-churchill-nv",
@@ -174,7 +179,8 @@
    "guarda_ate": null,
    "guarda_fonte": "",
    "locais": {},
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "id": "valmarino-xxvii-valmarino-2022",
@@ -204,7 +210,8 @@
    "locais": {
     "Adega superior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "topo"
   },
   {
    "id": "valmarino-xxv-valmarino-2020",
@@ -233,7 +240,8 @@
    "locais": {
     "Adega superior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "topo"
   },
   {
    "id": "angelica-zapata-cabernet-franc-alta-catena-zapata-2022",
@@ -259,7 +267,8 @@
    "guarda_ate": 2037,
    "guarda_fonte": "[Verificado — Catena Zapata] 'para beber agora e nos próximos 15 anos'",
    "locais": {},
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "topo"
   },
   {
    "id": "malbec-argentino-catena-zapata-2021",
@@ -289,7 +298,8 @@
    "locais": {
     "Adega superior": 2
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "topo"
   },
   {
    "id": "sottano-reserva-de-familia-18m-sottano-2024",
@@ -316,9 +326,10 @@
    "guarda_ate": 2032,
    "guarda_fonte": "[Inferência] crítica deu 'agora até 2032' à safra 2019 (vinofino.co.nz); estilo semelhante",
    "locais": {
-    "Adega inferior": 1
+    "Geladeira": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "id": "gran-enemigo-gualtallary-single-vineyard-el-enemigo-2018",
@@ -347,7 +358,8 @@
    "locais": {
     "Adega superior": 2
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "topo"
   },
   {
    "id": "el-enemigo-cabernet-franc-el-enemigo-2022",
@@ -376,7 +388,8 @@
    },
    "harmonizacao_fonte": "",
    "composicao": "90% Cabernet Franc, 10% Malbec (Vinhedo Adrianna, Gualtallary)",
-   "amadurecimento": "15 meses: 50% fudres, 25% barricas, 25% tanque · sem filtrar"
+   "amadurecimento": "15 meses: 50% fudres, 25% barricas, 25% tanque · sem filtrar",
+   "nivel": "mesa"
   },
   {
    "id": "angelica-zapata-cabernet-franc-alta-catena-zapata-2020",
@@ -402,10 +415,11 @@
    "guarda_ate": 2035,
    "guarda_fonte": "[Verificado — Catena Zapata] 'para beber agora e nos próximos 15 anos'",
    "locais": {
-    "Adega inferior": 2
+    "Adega inferior": 1
    },
    "harmonizacao_fonte": "",
-   "amadurecimento": "18 meses em carvalho francês · sem clarificar nem filtrar"
+   "amadurecimento": "18 meses em carvalho francês · sem clarificar nem filtrar",
+   "nivel": "topo"
   },
   {
    "id": "perro-callejero-blend-de-malbec-mosquita-muerta-2024",
@@ -431,10 +445,9 @@
    "guarda_de": 2025,
    "guarda_ate": 2028,
    "guarda_fonte": "[Inferência] tinto jovem de linha média",
-   "locais": {
-    "Adega inferior": 2
-   },
-   "harmonizacao_fonte": ""
+   "locais": {},
+   "harmonizacao_fonte": "",
+   "nivel": "descompromissado"
   },
   {
    "id": "sapo-de-otro-pozo-mosquita-muerta-2024",
@@ -460,10 +473,11 @@
    "guarda_ate": 2029,
    "guarda_fonte": "[Inferência] tinto jovem de linha média; janela de ~4–5 anos",
    "locais": {
-    "Adega inferior": 2
+    "Adega inferior": 3
    },
    "harmonizacao_fonte": "",
-   "abv": "13,4%"
+   "abv": "13,4%",
+   "nivel": "descompromissado"
   },
   {
    "id": "cordero-con-piel-de-lobo-mosquita-muerta-2025",
@@ -479,18 +493,21 @@
    "local": "",
    "harmonizacao": "Choripán e linguiça; empanadas; massas ao sugo — vinho de dia a dia",
    "nota": "",
-   "abv": "~13,5%",
+   "abv": "13,3%",
    "composicao": "100% Malbec",
    "amadurecimento": "~6 meses em carvalho usado",
-   "fontes": "[Inferência] Safras 2020–2023 (Wine Folly; montevideo.com.br). Importador norueguês cita Valle de Uco p/ 2024",
-   "certeza": "inferencia",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
-   "harmonizacao_fonte": ""
+   "fontes": "[Verificado — contrarrótulo] safra 2025, ABV 13,3%, Millán S.A. (Perdriel), importado por Zaffari, lote 20260601. [Inferência] amadurecimento de safras anteriores",
+   "certeza": "verificado",
+   "foto_frente": "fotos/cordero-con-piel-de-lobo-mosquita-muerta-2025-frente.jpg",
+   "foto_verso": "fotos/cordero-con-piel-de-lobo-mosquita-muerta-2025-verso.jpg",
+   "guarda_de": 2026,
+   "guarda_ate": 2029,
+   "guarda_fonte": "[Inferência] Malbec jovem de linha de entrada",
+   "locais": {
+    "Geladeira": 1
+   },
+   "harmonizacao_fonte": "",
+   "nivel": "descompromissado"
   },
   {
    "id": "d-v-catena-cabernet-malbec-catena-zapata-2025",
@@ -515,19 +532,21 @@
    "guarda_ate": 2035,
    "guarda_fonte": "[Inferência] linha D.V. Catena costuma pedir 2–3 anos de garrafa e guarda de ~10 anos; safra 2025 muito jovem",
    "locais": {
-    "Adega inferior": 5
+    "Adega inferior": 4,
+    "Geladeira": 1
    },
    "harmonizacao_fonte": "",
    "abv": "13,2%",
-   "composicao": "Cabernet Sauvignon (Vinhedo La Pirámide, Agrelo, 940 m) + Malbec (Vinhedo Angélica, Lunlunta, 860 m)"
+   "composicao": "Cabernet Sauvignon (Vinhedo La Pirámide, Agrelo, 940 m) + Malbec (Vinhedo Angélica, Lunlunta, 860 m)",
+   "nivel": "mesa"
   },
   {
-   "id": "sapo-de-otro-pozo-mosquita-muerta-2020",
+   "id": "sapo-de-otro-pozo-mosquita-muerta-2022",
    "nome": "Sapo de Otro Pozo",
    "produtor": "Mosquita Muerta",
-   "safra": "2020",
-   "uva": "Malbec-Cabernet Sauvignon",
-   "regiao": "",
+   "safra": "2022",
+   "uva": "Malbec, Syrah, Cabernet Franc",
+   "regiao": "Valle de Uco, Mendoza",
    "pais": "Mendoza, Argentina",
    "tipo": "tinto",
    "quantidade": 1,
@@ -535,19 +554,21 @@
    "local": "",
    "harmonizacao": "Costela e vazio na parrilla; ensopado de carne; massa ao ragu",
    "nota": "",
-   "composicao": "Malbec e Cabernet Sauvignon (proporção da 2020 não confirmada)",
-   "amadurecimento": "",
-   "fontes": "[Inferência] composição pela linha atual (rótulo da 2024: 65/35). Sem foto da garrafa 2020",
-   "certeza": "inferencia",
-   "foto_frente": "",
-   "foto_verso": "",
-   "guarda_de": 2022,
-   "guarda_ate": 2027,
-   "guarda_fonte": "[Inferência] mesma linha da 2024; com 6 anos, está no fim da janela",
+   "composicao": "60% Malbec, 20% Syrah, 20% Cabernet Franc · Blend de Tintas",
+   "amadurecimento": "Fermentação em bordalesas de carvalho francês e ovos de concreto; 50% do vinho 14 meses em barrica francesa de 1º uso, 50% em ovos de concreto",
+   "fontes": "[Verificado — rótulo e contrarrótulo] safra 2022 (não 2020, como estava), Blend de Tintas Valle de Uco 60/20/20, ABV 13,8%, lote L-20231123",
+   "certeza": "verificado",
+   "foto_frente": "fotos/sapo-de-otro-pozo-mosquita-muerta-2022-frente.jpg",
+   "foto_verso": "fotos/sapo-de-otro-pozo-mosquita-muerta-2022-verso.jpg",
+   "guarda_de": 2024,
+   "guarda_ate": 2029,
+   "guarda_fonte": "[Inferência] blend de linha média com 14 meses de barrica (metade do vinho)",
    "locais": {
     "Adega inferior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "abv": "13,8%",
+   "nivel": "descompromissado"
   },
   {
    "id": "cordero-con-piel-de-lobo-mosquita-muerta-2024",
@@ -570,11 +591,14 @@
    "certeza": "inferencia",
    "foto_frente": "",
    "foto_verso": "",
-   "guarda_de": null,
-   "guarda_ate": null,
-   "guarda_fonte": "",
-   "locais": {},
-   "harmonizacao_fonte": ""
+   "guarda_de": 2025,
+   "guarda_ate": 2028,
+   "guarda_fonte": "[Inferência] Malbec jovem de linha de entrada",
+   "locais": {
+    "Geladeira": 1
+   },
+   "harmonizacao_fonte": "",
+   "nivel": "descompromissado"
   },
   {
    "id": "la-jovem-brut-la",
@@ -598,8 +622,11 @@
    "guarda_de": null,
    "guarda_ate": null,
    "guarda_fonte": "",
-   "locais": {},
-   "harmonizacao_fonte": ""
+   "locais": {
+    "Geladeira": 1
+   },
+   "harmonizacao_fonte": "",
+   "nivel": "descompromissado"
   },
   {
    "nome": "Alvarinho Barricado",
@@ -625,7 +652,8 @@
    "guarda_ate": null,
    "guarda_fonte": "",
    "locais": {},
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "nome": "Cabernet Franc Reserva",
@@ -654,7 +682,8 @@
    },
    "harmonizacao_fonte": "produtor (contrarrótulo)",
    "composicao": "100% Cabernet Franc",
-   "amadurecimento": "12 meses em barricas de carvalho francês e americano"
+   "amadurecimento": "12 meses em barricas de carvalho francês e americano",
+   "nivel": "mesa"
   },
   {
    "nome": "Chardonnay Gran Reserva",
@@ -682,7 +711,8 @@
    "guarda_ate": null,
    "guarda_fonte": "",
    "locais": {},
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "nome": "Bakar Chardonnay",
@@ -709,7 +739,8 @@
    "guarda_ate": null,
    "guarda_fonte": "",
    "locais": {},
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "nome": "Schweigen Calcaire Blanc",
@@ -738,7 +769,8 @@
    "locais": {
     "Adega inferior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "nome": "Riesling vom Buntsandstein",
@@ -764,7 +796,8 @@
    "guarda_ate": null,
    "guarda_fonte": "",
    "locais": {},
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   },
   {
    "id": "pulenta-estate-red-blend-v-pulenta-estate-2022",
@@ -794,8 +827,13 @@
    "locais": {
     "Adega superior": 1
    },
-   "harmonizacao_fonte": ""
+   "harmonizacao_fonte": "",
+   "nivel": "mesa"
   }
  ],
- "historico": []
+ "historico": [],
+ "locais_capacidade": {
+  "Adega superior": 8,
+  "Adega inferior": 16
+ }
 }

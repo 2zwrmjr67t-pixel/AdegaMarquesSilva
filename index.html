@@ -59,6 +59,14 @@
   .cap .row { display:flex; justify-content:space-between; margin-top:5px; font-size:13px; color:var(--muted); }
   .cap .q { color:var(--olive); font-style:italic; }
   .gone { opacity:.55; }
+  .tag { display:inline-block; font-variant:small-caps; letter-spacing:.08em; font-size:12px; margin-top:3px; }
+  .occ { display:grid; grid-template-columns:1fr; gap:9px; }
+  .occ .r { display:grid; grid-template-columns:118px 1fr auto; align-items:center; gap:10px; font-size:14px; }
+  .occ .b { height:6px; border-radius:3px; background:var(--sand); position:relative; overflow:hidden; }
+  .occ .b i { position:absolute; left:0; top:0; bottom:0; background:var(--olive); border-radius:3px; }
+  .occ .b i.over { background:var(--terra); }
+  .occ .n { font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .nv { display:flex; gap:6px; flex-wrap:wrap; }
   .foot { text-align:center; margin-top:34px; font-size:13px; color:var(--muted); font-style:italic; line-height:1.6; }
   .empty { text-align:center; font-style:italic; color:var(--muted); margin:30px 0; }
   /* ficha */
@@ -113,7 +121,10 @@ const paisBase = (w) => { const p = String(w.pais || ""); return p.includes(",")
 const qtd = (w) => Number(w.quantidade) || 0;
 const plural = (n) => n + (n === 1 ? " garrafa" : " garrafas");
 
-const ABREV = { "Adega superior":"Adega sup.", "Adega inferior":"Adega inf.", "Cava":"Cava" };
+const ABREV = { "Adega superior":"Adega sup.", "Adega inferior":"Adega inf.", "Geladeira":"Geladeira", "Cava":"Cava" };
+const NIVEIS = [["descompromissado","Descompromissado","#5B6B3A"],["mesa","Para a mesa","#B0683F"],["topo","Topo de gama","#5C1220"]];
+const nivelInfo = (w) => NIVEIS.find(([k]) => k === w.nivel);
+let nivelF = "todos";
 function locs(w) {
   const l = Object.entries(w.locais || {}).filter(([, n]) => Number(n) > 0);
   const soma = l.reduce((a, [, n]) => a + Number(n), 0);
@@ -170,7 +181,7 @@ function adega() {
   const total = ativos.reduce((a, w) => a + qtd(w), 0);
   const porTipo = TIPOS.map(([t, l, c]) => [t, l, c, ativos.filter((w) => w.tipo === t).reduce((a, w) => a + qtd(w), 0)]).filter((x) => x[3] > 0);
   const q = busca.trim().toLowerCase();
-  const passa = (w) => (filtro === "todos" || w.tipo === filtro) &&
+  const passa = (w) => (filtro === "todos" || w.tipo === filtro) && (nivelF === "todos" || w.nivel === nivelF) &&
     (!q || [w.nome, w.produtor, w.uva, w.composicao, w.regiao, w.pais, w.harmonizacao, Object.keys(w.locais || {}).join(" ")].some((f) => String(f || "").toLowerCase().includes(q)));
 
   const prontos = ativos.filter((w) => passa(w)).map((w) => [w, status(w)]).filter(([, s]) => s && (s.k === "ponto" || s.k === "logo" || s.k === "passou"))
@@ -187,6 +198,17 @@ function adega() {
       ${porTipo.map(([t, l, , n]) => `<button class="pill ${filtro === t ? "on" : ""}" data-f="${t}">${l}<span class="n">${n}</span></button>`).join("")}</div>
   </div></div><div class="bd">`;
 
+  const cap = D.locais_capacidade || {};
+  const usados = {};
+  ativos.forEach((w) => Object.entries(w.locais || {}).forEach(([k, n]) => { usados[k] = (usados[k] || 0) + Number(n); }));
+  const semLocal = ativos.reduce((a, w) => a + Math.max(0, locs(w).falta), 0);
+  const ordemLoc = ["Adega superior", "Adega inferior", "Geladeira", "Cava"].filter((k) => usados[k] || cap[k]);
+  html += `<div class="h">Onde estão</div><div class="occ">${ordemLoc.map((k) => {
+      const u = usados[k] || 0, c = cap[k];
+      const pct = c ? Math.min(100, u / c * 100) : Math.min(100, u / Math.max(total, 1) * 100);
+      return `<div class="r"><span>${esc(k)}</span><div class="b"><i class="${c && u > c ? "over" : ""}" style="width:${pct.toFixed(0)}%"></i></div><span class="n">${c ? u + " / " + c : u}</span></div>`;
+    }).join("")}${semLocal ? `<div class="r"><span style="color:var(--muted)">Sem local</span><div></div><span class="n">${semLocal}</span></div>` : ""}</div>`;
+  html += `<div class="h">Ocasião</div><div class="nv"><button class="pill ${nivelF === "todos" ? "on" : ""}" data-n="todos">Todas</button>${NIVEIS.map(([k, l]) => `<button class="pill ${nivelF === k ? "on" : ""}" data-n="${k}">${l}<span class="n">${ativos.filter((w) => w.nivel === k).reduce((a, w) => a + qtd(w), 0)}</span></button>`).join("")}</div>`;
   html += `<div class="h">Pronto para beber</div>`;
   html += prontos.length
     ? `<div class="ready">${prontos.slice(0, 6).map(([w, s]) => `<div class="rd ${s.k !== "ponto" ? "urg" : ""}" data-id="${esc(w.id)}"><div class="nm">${esc(w.nome)}</div><div class="st">${esc(safraCurta(w))} · ${esc(s.txt)}</div></div>`).join("")}</div>`
@@ -201,6 +223,7 @@ function adega() {
   const app = document.getElementById("app");
   app.innerHTML = html;
   app.querySelectorAll("[data-f]").forEach((b) => b.onclick = () => { filtro = b.dataset.f; adega(); });
+  app.querySelectorAll("[data-n]").forEach((b) => b.onclick = () => { nivelF = b.dataset.n; adega(); });
   app.querySelectorAll("[data-id]").forEach((el) => el.onclick = () => { location.hash = "/" + encodeURIComponent(el.dataset.id); });
   const inp = document.getElementById("busca");
   inp.oninput = (e) => { busca = e.target.value; const p = e.target.selectionStart; const y = window.scrollY; adega(); const n = document.getElementById("busca"); n.focus({ preventScroll:true }); n.setSelectionRange(p, p); window.scrollTo(0, y); };
@@ -212,7 +235,7 @@ function card(w, gone) {
   return `<div class="card ${gone ? "gone" : ""}" data-id="${esc(w.id)}" style="position:relative">
     ${s && !gone ? `<span class="dotst" style="background:${s.cor}" title="${esc(s.txt)}"></span>` : ""}
     ${img}
-    <div class="cap"><div class="nm">${esc(w.nome)}</div><div class="mt">${esc(w.produtor)} · ${esc(safraCurta(w))}</div>
+    <div class="cap"><div class="nm">${esc(w.nome)}</div><div class="mt">${esc(w.produtor)} · ${esc(safraCurta(w))}</div>${nivelInfo(w) ? `<div class="tag" style="color:${nivelInfo(w)[2]}">${nivelInfo(w)[1]}</div>` : ""}
     <div class="row"><span>${esc(locCurto(w))}</span><span class="q">${gone ? "esgotado" : plural(qtd(w))}</span></div></div></div>`;
 }
 
@@ -246,6 +269,7 @@ function ficha(w) {
       <div class="f-name">${esc(w.nome)}</div>
       <div class="f-sub">${esc([safraCurta(w), tipoNome, plural(qtd(w))].filter(Boolean).join(" · "))}</div>
       ${locLongo(w) ? `<div class="f-sub" style="font-size:14px;margin-top:2px">${esc(locLongo(w))}</div>` : ""}
+      ${nivelInfo(w) ? `<div style="text-align:center;margin-top:6px"><span class="badge" style="color:${nivelInfo(w)[2]}">${nivelInfo(w)[1]}</span></div>` : ""}
       ${janela(w)}
       ${hs.length ? `<div class="pair"><div class="lb">Vai bem com</div><ul>${hs.map((h) => `<li>${esc(h.charAt(0).toUpperCase() + h.slice(1))}</li>`).join("")}</ul></div>` : ""}
       ${campo("Uvas", w.composicao || w.uva)}
