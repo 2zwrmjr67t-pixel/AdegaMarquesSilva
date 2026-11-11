@@ -122,7 +122,7 @@ const qtd = (w) => Number(w.quantidade) || 0;
 const plural = (n) => n + (n === 1 ? " garrafa" : " garrafas");
 
 const ABREV = { "Adega superior":"Adega sup.", "Adega inferior":"Adega inf.", "Geladeira":"Geladeira", "Cava":"Cava" };
-const NIVEIS = [["descompromissado","Descompromissado","#5B6B3A"],["mesa","Para a mesa","#B0683F"],["topo","Topo de gama","#5C1220"]];
+const NIVEIS = [["descompromissado","Casual","#5B6B3A"],["mesa","Braseiro","#B0683F"],["topo","Alta gama","#5C1220"]];
 const nivelInfo = (w) => NIVEIS.find(([k]) => k === w.nivel);
 let nivelF = "todos";
 function locs(w) {
@@ -196,6 +196,7 @@ function adega() {
     <div class="bar">${porTipo.map(([, , c, n]) => `<div style="width:${(n / total * 100).toFixed(1)}%;background:${c}"></div>`).join("")}</div>
     <div class="filters"><button class="pill ${filtro === "todos" ? "on" : ""}" data-f="todos">Todos<span class="n">${total}</span></button>
       ${porTipo.map(([t, l, , n]) => `<button class="pill ${filtro === t ? "on" : ""}" data-f="${t}">${l}<span class="n">${n}</span></button>`).join("")}</div>
+    <div class="filters" style="margin-top:6px"><button class="pill ${nivelF === "todos" ? "on" : ""}" data-n="todos">Todas</button>${NIVEIS.map(([k, l, c]) => `<button class="pill ${nivelF === k ? "on" : ""}" data-n="${k}" style="${nivelF === k ? `background:${c};border-color:${c}` : `color:${c};border-color:${c}66`}">${l}<span class="n">${ativos.filter((w) => w.nivel === k).reduce((a, w) => a + qtd(w), 0)}</span></button>`).join("")}</div>
   </div></div><div class="bd">`;
 
   const cap = D.locais_capacidade || {};
@@ -208,7 +209,6 @@ function adega() {
       const pct = c ? Math.min(100, u / c * 100) : Math.min(100, u / Math.max(total, 1) * 100);
       return `<div class="r"><span>${esc(k)}</span><div class="b"><i class="${c && u > c ? "over" : ""}" style="width:${pct.toFixed(0)}%"></i></div><span class="n">${c ? u + " / " + c : u}</span></div>`;
     }).join("")}${semLocal ? `<div class="r"><span style="color:var(--muted)">Sem local</span><div></div><span class="n">${semLocal}</span></div>` : ""}</div>`;
-  html += `<div class="h">Ocasião</div><div class="nv"><button class="pill ${nivelF === "todos" ? "on" : ""}" data-n="todos">Todas</button>${NIVEIS.map(([k, l]) => `<button class="pill ${nivelF === k ? "on" : ""}" data-n="${k}">${l}<span class="n">${ativos.filter((w) => w.nivel === k).reduce((a, w) => a + qtd(w), 0)}</span></button>`).join("")}</div>`;
   html += `<div class="h">Pronto para beber</div>`;
   html += prontos.length
     ? `<div class="ready">${prontos.slice(0, 6).map(([w, s]) => `<div class="rd ${s.k !== "ponto" ? "urg" : ""}" data-id="${esc(w.id)}"><div class="nm">${esc(w.nome)}</div><div class="st">${esc(safraCurta(w))} · ${esc(s.txt)}</div></div>`).join("")}</div>`
