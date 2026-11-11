@@ -113,6 +113,25 @@ const paisBase = (w) => { const p = String(w.pais || ""); return p.includes(",")
 const qtd = (w) => Number(w.quantidade) || 0;
 const plural = (n) => n + (n === 1 ? " garrafa" : " garrafas");
 
+const ABREV = { "Adega superior":"Adega sup.", "Adega inferior":"Adega inf.", "Cava":"Cava" };
+function locs(w) {
+  const l = Object.entries(w.locais || {}).filter(([, n]) => Number(n) > 0);
+  const soma = l.reduce((a, [, n]) => a + Number(n), 0);
+  return { l, falta: qtd(w) - soma };
+}
+function locCurto(w) {
+  const { l, falta } = locs(w);
+  const multi = l.length > 1 || (l.length && falta > 0);
+  const partes = l.map(([k, n]) => (ABREV[k] || k) + (multi ? " " + n : ""));
+  if (falta > 0) partes.push("s/ local" + (l.length ? " " + falta : ""));
+  return partes.join(" · ") || "—";
+}
+function locLongo(w) {
+  const { l, falta } = locs(w);
+  const partes = l.map(([k, n]) => k + " (" + n + ")");
+  if (falta > 0) partes.push(falta + " sem local definido");
+  return partes.join(" · ");
+}
 function status(w) {
   const de = Number(w.guarda_de), ate = Number(w.guarda_ate);
   if (!de || !ate) return null;
@@ -152,7 +171,7 @@ function adega() {
   const porTipo = TIPOS.map(([t, l, c]) => [t, l, c, ativos.filter((w) => w.tipo === t).reduce((a, w) => a + qtd(w), 0)]).filter((x) => x[3] > 0);
   const q = busca.trim().toLowerCase();
   const passa = (w) => (filtro === "todos" || w.tipo === filtro) &&
-    (!q || [w.nome, w.produtor, w.uva, w.composicao, w.regiao, w.pais, w.harmonizacao, w.posicao].some((f) => String(f || "").toLowerCase().includes(q)));
+    (!q || [w.nome, w.produtor, w.uva, w.composicao, w.regiao, w.pais, w.harmonizacao, Object.keys(w.locais || {}).join(" ")].some((f) => String(f || "").toLowerCase().includes(q)));
 
   const prontos = ativos.filter((w) => passa(w)).map((w) => [w, status(w)]).filter(([, s]) => s && (s.k === "ponto" || s.k === "logo" || s.k === "passou"))
     .sort((a, b) => Number(a[0].guarda_ate) - Number(b[0].guarda_ate));
@@ -194,7 +213,7 @@ function card(w, gone) {
     ${s && !gone ? `<span class="dotst" style="background:${s.cor}" title="${esc(s.txt)}"></span>` : ""}
     ${img}
     <div class="cap"><div class="nm">${esc(w.nome)}</div><div class="mt">${esc(w.produtor)} · ${esc(safraCurta(w))}</div>
-    <div class="row"><span>${esc(w.posicao || "—")}</span><span class="q">${gone ? "esgotado" : plural(qtd(w))}</span></div></div></div>`;
+    <div class="row"><span>${esc(locCurto(w))}</span><span class="q">${gone ? "esgotado" : plural(qtd(w))}</span></div></div></div>`;
 }
 
 function campo(lb, v) { return v ? `<div class="lb">${lb}</div><p class="tx">${esc(v)}</p>` : ""; }
@@ -225,7 +244,8 @@ function ficha(w) {
     <div class="fb">
       <div class="f-prod sc">${esc([w.produtor, paisBase(w)].filter(Boolean).join(" · "))}</div>
       <div class="f-name">${esc(w.nome)}</div>
-      <div class="f-sub">${esc([safraCurta(w), tipoNome, w.posicao, plural(qtd(w))].filter(Boolean).join(" · "))}</div>
+      <div class="f-sub">${esc([safraCurta(w), tipoNome, plural(qtd(w))].filter(Boolean).join(" · "))}</div>
+      ${locLongo(w) ? `<div class="f-sub" style="font-size:14px;margin-top:2px">${esc(locLongo(w))}</div>` : ""}
       ${janela(w)}
       ${hs.length ? `<div class="pair"><div class="lb">Vai bem com</div><ul>${hs.map((h) => `<li>${esc(h.charAt(0).toUpperCase() + h.slice(1))}</li>`).join("")}</ul></div>` : ""}
       ${campo("Uvas", w.composicao || w.uva)}
@@ -237,7 +257,7 @@ function ficha(w) {
       ${(w.valor || w.local) ? `<div class="g2"><div>${campo("Valor pago", w.valor ? "R$ " + w.valor : "")}</div><div>${campo("Onde comprou", w.local)}</div></div>` : ""}
       ${w.certeza ? `<div style="margin-top:20px"><span class="badge b-${esc(w.certeza)}">${CERT[w.certeza] || ""}</span></div>` : ""}
       ${w.fontes ? `<div class="src">Fontes: ${esc(w.fontes)}</div>` : ""}
-      ${hs.length ? `<div class="src">Harmonizações: sugestão do Claude.</div>` : ""}
+      ${hs.length ? `<div class="src">Harmonizações: ${w.harmonizacao_fonte ? "sugestão do " + esc(w.harmonizacao_fonte) : "sugestão do Claude"}.</div>` : ""}
     </div>`;
   const app = document.getElementById("app");
   app.innerHTML = html;
